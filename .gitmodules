@@ -1,0 +1,3 @@
+[submodule "PeanutButter/thirdparty/spdlog"]
+	path = PeanutButter/thirdparty/spdlog
+	url = https://github.com/gabime/spdlog
