@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\PeanutButter\Log.h" />
     <ClInclude Include="src\PeanutButter.h" />
     <ClInclude Include="src\PeanutButter\Application.h" />
     <ClInclude Include="src\PeanutButter\Core.h" />
     <ClInclude Include="src\PeanutButter\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PeanutButter\Log.cpp" />
     <ClCompile Include="src\PeanutButter\Application.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -67,6 +69,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>PB_PLATFORM_WINDOWS;PB_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)PeanutButter\thirdparty\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
