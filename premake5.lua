@@ -73,7 +73,7 @@ project "SandboxGame"
 
 	includedirs
 	{
-		"%{prj.name}/thirdparty/spdlog/include",
+		"PeanutButter/thirdparty/spdlog/include",
 		"PeanutButter/src"
 	}
 
