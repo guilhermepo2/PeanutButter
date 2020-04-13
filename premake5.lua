@@ -9,6 +9,10 @@ workspace "PeanutButter"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+IncludeDir = {}
+IncludeDir["SDL2"] = "%{prj.name}/thirdparty/SDL2-2.0.12/include"
+IncludeDir["SDL2_Image"] = "%{prj.name}/thirdparty/SDL2_image-2.0.5/include"
+IncludeDir["SDL2_ttf"] = "%{prj.name}/thirdparty/SDL2_ttf-2.0.15/include"
 
 project "PeanutButter"
 	location "PeanutButter"
@@ -30,7 +34,19 @@ project "PeanutButter"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/thirdparty/spdlog/include"
+		"%{prj.name}/thirdparty/spdlog/include",
+		"%{IncludeDir.SDL2}",
+		"%{IncludeDir.SDL2_Image}",
+		"%{IncludeDir.SDL2_ttf}"
+	}
+
+	links 
+	{
+		"SDL2.lib",
+		"SDL2main.lib",
+		"SDL2_image.lib",
+		"SDL2_ttf.lib"
+
 	}
 
 	filter "system:windows"
