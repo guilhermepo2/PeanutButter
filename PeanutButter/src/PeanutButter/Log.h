@@ -2,6 +2,7 @@
 #include <memory>
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 namespace PeanutButter {
 	class PB_API Log {

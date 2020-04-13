@@ -26,6 +26,7 @@ project "PeanutButter"
 
 	includedirs
 	{
+		"%{prj.name}/src"
 		"%{prj.name}/thirdparty/spdlog/include"
 	}
 
