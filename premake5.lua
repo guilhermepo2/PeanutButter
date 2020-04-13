@@ -8,7 +8,7 @@ workspace "PeanutButter"
 		"Dist"
 	}
 
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-${cfg.architecture}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 project "PeanutButter"
 	location "PeanutButter"
@@ -18,6 +18,9 @@ project "PeanutButter"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "pbpch.h"
+	pchsource "PeanutButter/src/pbpch.h"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -26,7 +29,7 @@ project "PeanutButter"
 
 	includedirs
 	{
-		"%{prj.name}/src"
+		"%{prj.name}/src",
 		"%{prj.name}/thirdparty/spdlog/include"
 	}
 

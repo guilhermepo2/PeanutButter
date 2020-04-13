@@ -1,54 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="PeanutButter">
+      <UniqueIdentifier>{0817B255-F479-41FA-9DFF-79B089410D7D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="PeanutButter\Events">
+      <UniqueIdentifier>{EC8916D1-58EB-F3DE-E158-3A914DB92A9E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\PeanutButter\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="src\PeanutButter.h" />
     <ClInclude Include="src\PeanutButter\Application.h">
-      <Filter>Header Files</Filter>
+      <Filter>PeanutButter</Filter>
     </ClInclude>
-    <ClInclude Include="src\PeanutButter.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\PeanutButter\Core.h">
+      <Filter>PeanutButter</Filter>
     </ClInclude>
     <ClInclude Include="src\PeanutButter\EntryPoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PeanutButter\Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PeanutButter\Events\Event.h">
-      <Filter>Header Files</Filter>
+      <Filter>PeanutButter</Filter>
     </ClInclude>
     <ClInclude Include="src\PeanutButter\Events\ApplicationEvents.h">
-      <Filter>Header Files</Filter>
+      <Filter>PeanutButter\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PeanutButter\Events\Event.h">
+      <Filter>PeanutButter\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\PeanutButter\Events\KeyEvents.h">
-      <Filter>Header Files</Filter>
+      <Filter>PeanutButter\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\PeanutButter\Events\MouseEvents.h">
-      <Filter>Header Files</Filter>
+      <Filter>PeanutButter\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\PeanutButter\Log.h">
+      <Filter>PeanutButter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pbpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>PeanutButter</Filter>
     </ClCompile>
     <ClCompile Include="src\PeanutButter\Log.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>PeanutButter</Filter>
     </ClCompile>
+    <ClCompile Include="src\pbpch.cpp" />
   </ItemGroup>
 </Project>

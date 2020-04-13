@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Event.h"
-#include <sstream>
 
 namespace PeanutButter {
 	/**
@@ -13,7 +12,7 @@ namespace PeanutButter {
 
 		inline pb_uint16 GetWidth() const { return m_Width; }
 		inline pb_uint16 GetHeight() const { return m_Height; }
-		EVENT_CLASS_TYPE(EEventType::ET_WindowResize);
+		EVENT_CLASS_TYPE(ET_WindowResize);
 		EVENT_CLASS_CATEGORY(EEventCategory::EC_Application);
 
 	protected:
@@ -35,7 +34,7 @@ namespace PeanutButter {
 	public:
 		WindowCloseEvent();
 
-		EVENT_CLASS_TYPE(EEventType::ET_WindowClose);
+		EVENT_CLASS_TYPE(ET_WindowClose);
 		EVENT_CLASS_CATEGORY(EEventCategory::EC_Application);
 	};
 }
