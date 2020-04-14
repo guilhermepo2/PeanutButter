@@ -1,6 +1,8 @@
 #pragma once
 
 #include "PeanutButter/Core.h"
+#include <string>
+#include <functional>
 
 namespace PeanutButter {
 	

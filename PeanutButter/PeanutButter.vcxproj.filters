@@ -35,6 +35,8 @@
       <Filter>PeanutButter</Filter>
     </ClInclude>
     <ClInclude Include="src\pbpch.h" />
+    <ClInclude Include="src\PeanutButter\Window.h" />
+    <ClInclude Include="src\Platform\SDL2\SDL2Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
@@ -44,5 +46,6 @@
       <Filter>PeanutButter</Filter>
     </ClCompile>
     <ClCompile Include="src\pbpch.cpp" />
+    <ClCompile Include="src\Platform\SDL2\SDL2Window.cpp" />
   </ItemGroup>
 </Project>

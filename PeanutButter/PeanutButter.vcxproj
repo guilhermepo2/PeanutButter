@@ -149,6 +149,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\SDL2\SDL2Window.h" />
     <ClInclude Include="src\PeanutButter.h" />
     <ClInclude Include="src\PeanutButter\Application.h" />
     <ClInclude Include="src\PeanutButter\Core.h" />
@@ -159,8 +160,10 @@
     <ClInclude Include="src\PeanutButter\Events\MouseEvents.h" />
     <ClInclude Include="src\PeanutButter\Log.h" />
     <ClInclude Include="src\pbpch.h" />
+    <ClInclude Include="src\PeanutButter\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\SDL2\SDL2Window.cpp" />
     <ClCompile Include="src\PeanutButter\Application.cpp" />
     <ClCompile Include="src\PeanutButter\Log.cpp" />
     <ClCompile Include="src\pbpch.cpp" />

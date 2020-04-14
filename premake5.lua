@@ -57,7 +57,8 @@ project "PeanutButter"
 		defines 
 		{
 			"PB_PLATFORM_WINDOWS",
-			"PB_BUILD_DLL"
+			"PB_BUILD_DLL",
+			"PB_ENABLE_ASSERT"
 		}
 
 		postbuildcommands
