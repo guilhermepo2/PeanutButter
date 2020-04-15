@@ -8,7 +8,6 @@ namespace PeanutButter {
 	std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
 
 	void Log::Initialize() {
-		// TODO: look at spdlog wiki about formatting patterns.
 		spdlog::set_pattern("%^[%T] %n: %v%$");
 
 		s_CoreLogger = spdlog::stdout_color_mt("Peanut Butter");

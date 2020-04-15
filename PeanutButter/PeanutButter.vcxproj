@@ -149,14 +149,13 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\PeanutButter.h" />
+    <ClInclude Include="src\PeanutButter\Application.h" />
+    <ClInclude Include="src\PeanutButter\Core.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\Component.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\Transform.h" />
     <ClInclude Include="src\PeanutButter\Entity\Entity.h" />
     <ClInclude Include="src\PeanutButter\Entity\EntityManager.h" />
-    <ClInclude Include="src\Platform\SDL2\SDL2Renderer.h" />
-    <ClInclude Include="src\PeanutButter.h" />
-    <ClInclude Include="src\PeanutButter\Application.h" />
-    <ClInclude Include="src\PeanutButter\Core.h" />
     <ClInclude Include="src\PeanutButter\EntryPoint.h" />
     <ClInclude Include="src\PeanutButter\Events\ApplicationEvents.h" />
     <ClInclude Include="src\PeanutButter\Events\Event.h" />
@@ -167,15 +166,16 @@
     <ClInclude Include="src\PeanutButter\Math\Vector2.h" />
     <ClInclude Include="src\PeanutButter\Renderer\Renderer.h" />
     <ClInclude Include="src\PeanutButter\Window.h" />
+    <ClInclude Include="src\Platform\SDL2\SDL2Renderer.h" />
     <ClInclude Include="src\Platform\SDL2\SDL2Window.h" />
     <ClInclude Include="src\pbpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PeanutButter\Application.cpp" />
     <ClCompile Include="src\PeanutButter\Entity\Entity.cpp" />
     <ClCompile Include="src\PeanutButter\Entity\EntityManager.cpp" />
-    <ClCompile Include="src\Platform\SDL2\SDL2Renderer.cpp" />
-    <ClCompile Include="src\PeanutButter\Application.cpp" />
     <ClCompile Include="src\PeanutButter\Log.cpp" />
+    <ClCompile Include="src\Platform\SDL2\SDL2Renderer.cpp" />
     <ClCompile Include="src\Platform\SDL2\SDL2Window.cpp" />
     <ClCompile Include="src\pbpch.cpp" />
   </ItemGroup>

@@ -4,8 +4,20 @@
     <Filter Include="PeanutButter">
       <UniqueIdentifier>{0817B255-F479-41FA-9DFF-79B089410D7D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PeanutButter\Entity">
+      <UniqueIdentifier>{54EA8DD0-C04B-6BDE-49B9-B190B519A29D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PeanutButter\Entity\Component">
+      <UniqueIdentifier>{B6BBD7A3-22D4-BECD-EB80-4E6757585367}</UniqueIdentifier>
+    </Filter>
     <Filter Include="PeanutButter\Events">
       <UniqueIdentifier>{EC8916D1-58EB-F3DE-E158-3A914DB92A9E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PeanutButter\Math">
+      <UniqueIdentifier>{E120C071-4D37-BE07-96AE-492902048F8F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PeanutButter\Renderer">
+      <UniqueIdentifier>{AEC3DB67-1A30-9762-E323-2FC04F4FB9CA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
@@ -21,6 +33,18 @@
     </ClInclude>
     <ClInclude Include="src\PeanutButter\Core.h">
       <Filter>PeanutButter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PeanutButter\Entity\Component\Component.h">
+      <Filter>PeanutButter\Entity\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PeanutButter\Entity\Component\Transform.h">
+      <Filter>PeanutButter\Entity\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PeanutButter\Entity\Entity.h">
+      <Filter>PeanutButter\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PeanutButter\Entity\EntityManager.h">
+      <Filter>PeanutButter\Entity</Filter>
     </ClInclude>
     <ClInclude Include="src\PeanutButter\EntryPoint.h">
       <Filter>PeanutButter</Filter>
@@ -40,35 +64,45 @@
     <ClInclude Include="src\PeanutButter\Log.h">
       <Filter>PeanutButter</Filter>
     </ClInclude>
+    <ClInclude Include="src\PeanutButter\Math\Math.h">
+      <Filter>PeanutButter\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PeanutButter\Math\Vector2.h">
+      <Filter>PeanutButter\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PeanutButter\Renderer\Renderer.h">
+      <Filter>PeanutButter\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\PeanutButter\Window.h">
       <Filter>PeanutButter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\SDL2\SDL2Renderer.h">
+      <Filter>Platform\SDL2</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\SDL2\SDL2Window.h">
       <Filter>Platform\SDL2</Filter>
     </ClInclude>
     <ClInclude Include="src\pbpch.h" />
-    <ClInclude Include="src\PeanutButter\Math\Math.h" />
-    <ClInclude Include="src\PeanutButter\Math\Vector2.h" />
-    <ClInclude Include="src\PeanutButter\Renderer\Renderer.h" />
-    <ClInclude Include="src\Platform\SDL2\SDL2Renderer.h" />
-    <ClInclude Include="src\PeanutButter\Entity\Entity.h" />
-    <ClInclude Include="src\PeanutButter\Entity\Component\Component.h" />
-    <ClInclude Include="src\PeanutButter\Entity\Component\Transform.h" />
-    <ClInclude Include="src\PeanutButter\Entity\EntityManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
       <Filter>PeanutButter</Filter>
     </ClCompile>
+    <ClCompile Include="src\PeanutButter\Entity\Entity.cpp">
+      <Filter>PeanutButter\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PeanutButter\Entity\EntityManager.cpp">
+      <Filter>PeanutButter\Entity</Filter>
+    </ClCompile>
     <ClCompile Include="src\PeanutButter\Log.cpp">
       <Filter>PeanutButter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\SDL2\SDL2Renderer.cpp">
+      <Filter>Platform\SDL2</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\SDL2\SDL2Window.cpp">
       <Filter>Platform\SDL2</Filter>
     </ClCompile>
     <ClCompile Include="src\pbpch.cpp" />
-    <ClCompile Include="src\Platform\SDL2\SDL2Renderer.cpp" />
-    <ClCompile Include="src\PeanutButter\Entity\Entity.cpp" />
-    <ClCompile Include="src\PeanutButter\Entity\EntityManager.cpp" />
   </ItemGroup>
 </Project>
