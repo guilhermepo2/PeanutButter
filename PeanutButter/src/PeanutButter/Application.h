@@ -17,9 +17,10 @@ namespace PeanutButter {
 		std::unique_ptr<Window> m_Window;
 		std::unique_ptr<Renderer> m_Renderer;
 		bool m_bIsRunning;
+
+		float m_TicksLastFrame;
 	};
 
 	// Defined in the client
 	Application* CreateApplication();
 }
-
