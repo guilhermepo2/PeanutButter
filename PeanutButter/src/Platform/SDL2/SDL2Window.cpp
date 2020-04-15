@@ -31,9 +31,8 @@ namespace PeanutButter {
 		}
 
 		m_pWindow = SDL_CreateWindow(Info.WindowTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Info.Width, Info.Height, 0);
+		PB_CORE_ASSERT(m_pWindow, "Could not create SDL2 Window!")
 		PB_CORE_INFO("Created SDL2 Window");
-
-		// TODO Set SDL2 Callbacks
 	}
 
 	void SDL2Window::Destroy() {
@@ -45,6 +44,9 @@ namespace PeanutButter {
 	}
 
 	void SDL2Window::Update() {
+
+		// TODO Have a function dedicated to polling events
+		// Polling Events
 		SDL_Event InputEvent;
 		SDL_PollEvent(&InputEvent);
 		

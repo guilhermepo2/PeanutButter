@@ -10,6 +10,11 @@ namespace PeanutButter {
 		m_bIsRunning = true;
 	}
 
+	Application::Application(const char* WindowTitle, pb_int16 WindowWidth, pb_int16 WindowHeight) {
+		m_Window = std::unique_ptr<Window>(Window::Create(WindowInformation(WindowTitle, WindowWidth, WindowHeight)));
+		m_bIsRunning = true;
+	}
+
 	void Application::Run() {
 		while (m_Window->IsWindowValid()) {
 			m_Window->Update();

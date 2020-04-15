@@ -8,10 +8,11 @@ namespace PeanutButter {
 	class PB_API Application {
 	public:
 		Application();
+		Application(const char* WindowTitle, pb_int16 WindowWidth, pb_int16 WindowHeight);
 		virtual ~Application() {}
 		void Run();
 
-	protected:
+	private:
 		std::unique_ptr<Window> m_Window;
 		bool m_bIsRunning;
 	};
