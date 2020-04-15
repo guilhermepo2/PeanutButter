@@ -149,6 +149,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\PeanutButter\Entity\Component\Component.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Component\Transform.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Entity.h" />
+    <ClInclude Include="src\PeanutButter\Entity\EntityManager.h" />
     <ClInclude Include="src\Platform\SDL2\SDL2Renderer.h" />
     <ClInclude Include="src\PeanutButter.h" />
     <ClInclude Include="src\PeanutButter\Application.h" />
@@ -167,6 +171,8 @@
     <ClInclude Include="src\pbpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PeanutButter\Entity\Entity.cpp" />
+    <ClCompile Include="src\PeanutButter\Entity\EntityManager.cpp" />
     <ClCompile Include="src\Platform\SDL2\SDL2Renderer.cpp" />
     <ClCompile Include="src\PeanutButter\Application.cpp" />
     <ClCompile Include="src\PeanutButter\Log.cpp" />

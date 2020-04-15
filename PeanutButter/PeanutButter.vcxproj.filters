@@ -51,6 +51,10 @@
     <ClInclude Include="src\PeanutButter\Math\Vector2.h" />
     <ClInclude Include="src\PeanutButter\Renderer\Renderer.h" />
     <ClInclude Include="src\Platform\SDL2\SDL2Renderer.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Entity.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Component\Component.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Component\Transform.h" />
+    <ClInclude Include="src\PeanutButter\Entity\EntityManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
@@ -64,5 +68,7 @@
     </ClCompile>
     <ClCompile Include="src\pbpch.cpp" />
     <ClCompile Include="src\Platform\SDL2\SDL2Renderer.cpp" />
+    <ClCompile Include="src\PeanutButter\Entity\Entity.cpp" />
+    <ClCompile Include="src\PeanutButter\Entity\EntityManager.cpp" />
   </ItemGroup>
 </Project>
