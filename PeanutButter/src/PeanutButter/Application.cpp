@@ -7,17 +7,23 @@ namespace PeanutButter {
 
 	Application::Application() {
 		m_Window = std::unique_ptr<Window>(Window::Create(WindowInformation("Peanut Butter Engine", 480, 270)));
+		m_Renderer = std::unique_ptr<Renderer>(Renderer::Create(m_Window.get()));
 		m_bIsRunning = true;
 	}
 
 	Application::Application(const char* WindowTitle, pb_int16 WindowWidth, pb_int16 WindowHeight) {
 		m_Window = std::unique_ptr<Window>(Window::Create(WindowInformation(WindowTitle, WindowWidth, WindowHeight)));
+		m_Renderer = std::unique_ptr<Renderer>(Renderer::Create(m_Window.get()));
 		m_bIsRunning = true;
 	}
 
 	void Application::Run() {
 		while (m_Window->IsWindowValid()) {
 			m_Window->Update();
+			m_Renderer->Update();
 		}
+
+		m_Renderer.release();
+		m_Window.release();
 	}
 }

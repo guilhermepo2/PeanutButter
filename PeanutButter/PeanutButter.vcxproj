@@ -149,6 +149,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\SDL2\SDL2Renderer.h" />
     <ClInclude Include="src\PeanutButter.h" />
     <ClInclude Include="src\PeanutButter\Application.h" />
     <ClInclude Include="src\PeanutButter\Core.h" />
@@ -160,11 +161,13 @@
     <ClInclude Include="src\PeanutButter\Log.h" />
     <ClInclude Include="src\PeanutButter\Math\Math.h" />
     <ClInclude Include="src\PeanutButter\Math\Vector2.h" />
+    <ClInclude Include="src\PeanutButter\Renderer\Renderer.h" />
     <ClInclude Include="src\PeanutButter\Window.h" />
     <ClInclude Include="src\Platform\SDL2\SDL2Window.h" />
     <ClInclude Include="src\pbpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\SDL2\SDL2Renderer.cpp" />
     <ClCompile Include="src\PeanutButter\Application.cpp" />
     <ClCompile Include="src\PeanutButter\Log.cpp" />
     <ClCompile Include="src\Platform\SDL2\SDL2Window.cpp" />

@@ -4,6 +4,7 @@
 namespace PeanutButter {
 	static bool s_bSDL2Initialized = false;
 
+	// TODO: make this more modular...
 	Window* Window::Create(const WindowInformation& Info) {
 		return new SDL2Window(Info);
 	}
@@ -36,7 +37,7 @@ namespace PeanutButter {
 	}
 
 	void SDL2Window::Destroy() {
-		PB_CORE_WARNING("Destroying Window");
+		PB_CORE_WARNING("Destroying SDL2 Window");
 		SDL_DestroyWindow(m_pWindow);
 
 		// Don't Quit - Maybe we have multiple windows? 
@@ -52,7 +53,7 @@ namespace PeanutButter {
 		
 		switch (InputEvent.type) {
 		case SDL_QUIT:
-			// TODO: Call Window Close callback
+			// TODO: DON'T DESTROY THINGS HERE! SEND A WINDOW_CLOSE EVENT TO THE APPLICATION!
 			PB_CORE_INFO("Closing Window!");
 			Destroy();
 			break;

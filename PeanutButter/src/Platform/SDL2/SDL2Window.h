@@ -34,6 +34,7 @@ namespace PeanutButter {
 		inline pb_uint16 GetHeight() const override { return m_Data.Height; }
 		inline void SetCallback(const CallbackFunction& Callback) { m_Data.EventCallback = Callback; }
 		inline bool IsWindowValid() const override { return m_pWindow != nullptr; }
+		inline SDL_Window* GetSDLWindow() const { return m_pWindow; }
 	};
 }
 
