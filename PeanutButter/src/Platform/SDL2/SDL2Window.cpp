@@ -31,21 +31,29 @@ namespace PeanutButter {
 		}
 
 		m_pWindow = SDL_CreateWindow(Info.WindowTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Info.Width, Info.Height, 0);
+		PB_CORE_INFO("Created SDL2 Window");
 
 		// TODO Set SDL2 Callbacks
-		
 	}
 
 	void SDL2Window::Destroy() {
 		PB_CORE_WARNING("Destroying Window");
-		delete m_pWindow;
-		m_pWindow = nullptr;
+		SDL_DestroyWindow(m_pWindow);
 
 		// Don't Quit - Maybe we have multiple windows? 
-		// SDL_Quit();
+		SDL_Quit();
 	}
 
 	void SDL2Window::Update() {
-		// TODO
+		SDL_Event InputEvent;
+		SDL_PollEvent(&InputEvent);
+		
+		switch (InputEvent.type) {
+		case SDL_QUIT:
+			// TODO: Call Window Close callback
+			PB_CORE_INFO("Closing Window!");
+			Destroy();
+			break;
+		}
 	}
 }

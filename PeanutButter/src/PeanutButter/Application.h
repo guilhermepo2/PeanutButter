@@ -11,14 +11,12 @@ namespace PeanutButter {
 		virtual ~Application() {}
 		void Run();
 
-		void OnEvent(Event& InEvent);
-
 	protected:
 		std::unique_ptr<Window> m_Window;
 		bool m_bIsRunning;
 	};
 
-	// This is going to be defined in the client.
+	// Defined in the client
 	Application* CreateApplication();
 }
 
