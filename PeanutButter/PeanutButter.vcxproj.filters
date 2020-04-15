@@ -47,6 +47,8 @@
       <Filter>Platform\SDL2</Filter>
     </ClInclude>
     <ClInclude Include="src\pbpch.h" />
+    <ClInclude Include="src\PeanutButter\Math\Math.h" />
+    <ClInclude Include="src\PeanutButter\Math\Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">

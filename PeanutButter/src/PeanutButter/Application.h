@@ -11,6 +11,8 @@ namespace PeanutButter {
 		virtual ~Application() {}
 		void Run();
 
+		void OnEvent(Event& InEvent);
+
 	protected:
 		std::unique_ptr<Window> m_Window;
 		bool m_bIsRunning;

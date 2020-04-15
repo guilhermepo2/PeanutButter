@@ -31,6 +31,9 @@ namespace PeanutButter {
 		}
 
 		m_pWindow = SDL_CreateWindow(Info.WindowTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Info.Width, Info.Height, 0);
+
+		// TODO Set SDL2 Callbacks
+		
 	}
 
 	void SDL2Window::Destroy() {

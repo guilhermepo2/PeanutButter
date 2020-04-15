@@ -1,10 +1,13 @@
 #include "pbpch.h"
 #include "Application.h"
+#include "PeanutButter/Log.h"
 #include <SDL.h>
 
 namespace PeanutButter {
+
 	Application::Application() {
 		m_Window = std::unique_ptr<Window>(Window::Create(WindowInformation("Peanut Butter Engine", 480, 270)));
+		m_Window->SetCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 		m_bIsRunning = true;
 	}
 
@@ -14,5 +17,9 @@ namespace PeanutButter {
 		}
 
 		SDL_Quit();
+	}
+
+	void Application::OnEvent(Event& InEvent) {
+		PB_CORE_INFO("{0}", InEvent);
 	}
 }

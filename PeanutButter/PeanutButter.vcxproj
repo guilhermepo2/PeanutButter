@@ -158,6 +158,8 @@
     <ClInclude Include="src\PeanutButter\Events\KeyEvents.h" />
     <ClInclude Include="src\PeanutButter\Events\MouseEvents.h" />
     <ClInclude Include="src\PeanutButter\Log.h" />
+    <ClInclude Include="src\PeanutButter\Math\Math.h" />
+    <ClInclude Include="src\PeanutButter\Math\Vector2.h" />
     <ClInclude Include="src\PeanutButter\Window.h" />
     <ClInclude Include="src\Platform\SDL2\SDL2Window.h" />
     <ClInclude Include="src\pbpch.h" />
