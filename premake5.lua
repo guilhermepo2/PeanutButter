@@ -94,6 +94,7 @@ project "SandboxGame"
 	includedirs
 	{
 		"PeanutButter/thirdparty/spdlog/include",
+		"PeanutButter/thirdparty/SDL2-2.0.12/include",
 		"PeanutButter/src"
 	}
 

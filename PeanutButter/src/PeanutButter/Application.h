@@ -1,23 +1,29 @@
 #pragma once
 
 #include "Core.h"
-#include "Events/Event.h"
-#include "Window.h"
-#include "Renderer/Renderer.h"
+
+#include <SDL.h>
+#undef main // dumb SDL stuff
 
 namespace PeanutButter {
 	class PB_API Application {
 	public:
 		Application();
-		Application(const char* WindowTitle, pb_int16 WindowWidth, pb_int16 WindowHeight);
 		virtual ~Application() {}
 		void Run();
 
-	private:
-		std::unique_ptr<Window> m_Window;
-		std::unique_ptr<Renderer> m_Renderer;
-		bool m_bIsRunning;
+		static bool s_bSDL2Initialized;
+		static SDL_Renderer* s_Renderer;
+		static SDL_Window* s_Window;
+		static SDL_Event ApplicationEvent;
 
+	protected:
+		void ProcessInput();
+		void Update();
+		void Render();
+
+	private:
+		bool m_bIsRunning;
 		float m_TicksLastFrame;
 	};
 
