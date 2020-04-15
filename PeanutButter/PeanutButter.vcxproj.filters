@@ -7,6 +7,12 @@
     <Filter Include="PeanutButter\Events">
       <UniqueIdentifier>{EC8916D1-58EB-F3DE-E158-3A914DB92A9E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\SDL2">
+      <UniqueIdentifier>{CEFF9661-3AC0-1298-03FB-5B156F7A5774}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\PeanutButter.h" />
@@ -34,9 +40,13 @@
     <ClInclude Include="src\PeanutButter\Log.h">
       <Filter>PeanutButter</Filter>
     </ClInclude>
+    <ClInclude Include="src\PeanutButter\Window.h">
+      <Filter>PeanutButter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\SDL2\SDL2Window.h">
+      <Filter>Platform\SDL2</Filter>
+    </ClInclude>
     <ClInclude Include="src\pbpch.h" />
-    <ClInclude Include="src\PeanutButter\Window.h" />
-    <ClInclude Include="src\Platform\SDL2\SDL2Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
@@ -45,7 +55,9 @@
     <ClCompile Include="src\PeanutButter\Log.cpp">
       <Filter>PeanutButter</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\SDL2\SDL2Window.cpp">
+      <Filter>Platform\SDL2</Filter>
+    </ClCompile>
     <ClCompile Include="src\pbpch.cpp" />
-    <ClCompile Include="src\Platform\SDL2\SDL2Window.cpp" />
   </ItemGroup>
 </Project>

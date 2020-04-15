@@ -79,7 +79,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>pbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PB_PLATFORM_WINDOWS;PB_BUILD_DLL;PB_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PB_PLATFORM_WINDOWS;PB_BUILD_DLL;PB_ENABLE_ASSERT;PB_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;thirdparty\spdlog\include;thirdparty\SDL2-2.0.12\include;thirdparty\SDL2_image-2.0.5\include;thirdparty\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -101,7 +101,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PB_PLATFORM_WINDOWS;PB_BUILD_DLL;PB_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PB_PLATFORM_WINDOWS;PB_BUILD_DLL;PB_ENABLE_ASSERT;PB_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;thirdparty\spdlog\include;thirdparty\SDL2-2.0.12\include;thirdparty\SDL2_image-2.0.5\include;thirdparty\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -127,7 +127,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PB_PLATFORM_WINDOWS;PB_BUILD_DLL;PB_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>PB_PLATFORM_WINDOWS;PB_BUILD_DLL;PB_ENABLE_ASSERT;PB_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;thirdparty\spdlog\include;thirdparty\SDL2-2.0.12\include;thirdparty\SDL2_image-2.0.5\include;thirdparty\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -149,7 +149,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Platform\SDL2\SDL2Window.h" />
     <ClInclude Include="src\PeanutButter.h" />
     <ClInclude Include="src\PeanutButter\Application.h" />
     <ClInclude Include="src\PeanutButter\Core.h" />
@@ -159,13 +158,14 @@
     <ClInclude Include="src\PeanutButter\Events\KeyEvents.h" />
     <ClInclude Include="src\PeanutButter\Events\MouseEvents.h" />
     <ClInclude Include="src\PeanutButter\Log.h" />
-    <ClInclude Include="src\pbpch.h" />
     <ClInclude Include="src\PeanutButter\Window.h" />
+    <ClInclude Include="src\Platform\SDL2\SDL2Window.h" />
+    <ClInclude Include="src\pbpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platform\SDL2\SDL2Window.cpp" />
     <ClCompile Include="src\PeanutButter\Application.cpp" />
     <ClCompile Include="src\PeanutButter\Log.cpp" />
+    <ClCompile Include="src\Platform\SDL2\SDL2Window.cpp" />
     <ClCompile Include="src\pbpch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -46,7 +46,6 @@ project "PeanutButter"
 		"SDL2main.lib",
 		"SDL2_image.lib",
 		"SDL2_ttf.lib"
-
 	}
 
 	filter "system:windows"
