@@ -59,6 +59,7 @@
       <Filter>PeanutButter\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\pbpch.h" />
+    <ClInclude Include="src\PeanutButter\Utils\Animation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">

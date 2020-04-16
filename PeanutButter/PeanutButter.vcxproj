@@ -161,6 +161,7 @@
     <ClInclude Include="src\PeanutButter\Log.h" />
     <ClInclude Include="src\PeanutButter\Math\Math.h" />
     <ClInclude Include="src\PeanutButter\Math\Vector2.h" />
+    <ClInclude Include="src\PeanutButter\Utils\Animation.h" />
     <ClInclude Include="src\PeanutButter\Utils\AssetManager.h" />
     <ClInclude Include="src\PeanutButter\Utils\TextureManager.h" />
     <ClInclude Include="src\pbpch.h" />

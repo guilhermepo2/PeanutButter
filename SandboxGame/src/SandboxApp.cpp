@@ -15,8 +15,8 @@ public:
 
 		// Creating Hero Entity
 		Entity& Hero(Application::s_EManager->AddEntity("Hero"));
-		Hero.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(1, 1));
-		Hero.AddComponentOfType<Sprite>("hero-character", Vector2(64.0, 64.0));
+		Hero.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(2, 2));
+		Hero.AddComponentOfType<Sprite>("hero-character", Vector2(48.0, 48.0), 3, 150);
 	}
 };
 
