@@ -11,15 +11,12 @@ public:
 
 		// Loading Sprites into the asset mananager
 		Application::s_AssetManager->AddTexture("tank-image", "assets/images/tank-big-right.png");
+		Application::s_AssetManager->AddTexture("hero-character", "assets/chara_hero.png");
 
-		// Creating my tank entity
-		Entity& TankEntity(Application::s_EManager->AddEntity("tank"));
-		TankEntity.AddComponentOfType<Transform>();
-		Transform* TankTransform = TankEntity.GetComponentOfType<Transform>();
-		TankTransform->Position = Vector2(100, 100);
-		TankTransform->Scale = Vector2(1.0, 1.0);
-
-		TankEntity.AddComponentOfType<Sprite>("tank-image", Vector2(32, 32));
+		// Creating Hero Entity
+		Entity& Hero(Application::s_EManager->AddEntity("Hero"));
+		Hero.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(1, 1));
+		Hero.AddComponentOfType<Sprite>("hero-character", Vector2(64.0, 64.0));
 	}
 };
 

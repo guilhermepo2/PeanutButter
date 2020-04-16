@@ -33,14 +33,14 @@ namespace PeanutButter {
 		}
 
 		void Update(float DeltaTime) override {
-			DestinationRectangle.x = static_cast<int>(transform->Position.x);
-			DestinationRectangle.y = static_cast<int>(transform->Position.y);
-			DestinationRectangle.w = static_cast<int>(SpriteSize.x) * static_cast<int>(transform->Scale.x);
-			DestinationRectangle.h = static_cast<int>(SpriteSize.y) * static_cast<int>(transform->Scale.y);
+			DestinationRectangle.x = static_cast<int>(transform->Position->x);
+			DestinationRectangle.y = static_cast<int>(transform->Position->y);
+			DestinationRectangle.w = static_cast<int>(SpriteSize.x) * static_cast<int>(transform->Scale->x);
+			DestinationRectangle.h = static_cast<int>(SpriteSize.y) * static_cast<int>(transform->Scale->y);
 		}
 
 		void Render() override {
-			// PB_CORE_INFO("Rendering Sprite on Position {0} {1}", transform->Position.x, transform->Position.y);
+			// PB_CORE_INFO("Rendering Sprite on Position {0} {1}", transform->Position->x, transform->Position->y);
 			TextureManager::Draw(Texture, SourceRectangle, DestinationRectangle, SpriteFlip);
 		}
 

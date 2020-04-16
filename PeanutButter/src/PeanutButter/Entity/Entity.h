@@ -28,7 +28,7 @@ namespace PeanutButter {
 			T* NewComponent(new T(std::forward<TArgs>(Args)...));
 			NewComponent->owner = this;
 			m_Components.push_back(NewComponent);
-			m_ComponentTypeMap[&typeid(*NewComponent)] = new Component;
+			m_ComponentTypeMap[&typeid(*NewComponent)] = NewComponent;
 			NewComponent->Initialize();
 			return *NewComponent;
 		}
