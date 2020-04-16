@@ -6,6 +6,8 @@ namespace PeanutButter {
 	SDL_Texture* TextureManager::LoadTexture(const char* Filename) {
 		SDL_Surface* Surface = IMG_Load(Filename);
 		
+		PB_CORE_INFO("Loading image on path {0}", Filename);
+
 		if (Surface == nullptr) {
 			PB_CORE_ERROR("Couldn't load image on path {0} - Error: {1}", Filename, IMG_GetError());
 		}

@@ -6,7 +6,7 @@
 #include <map>
 
 namespace PeanutButter {
-	class AssetManager {
+	class PB_API AssetManager {
 	public:
 		AssetManager(EntityManager* InManager);
 		~AssetManager();

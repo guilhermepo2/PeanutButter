@@ -2,7 +2,7 @@
 #include "PeanutButter/Entity/Entity.h"
 
 namespace PeanutButter {
-	class Component {
+	class PB_API Component {
 	public:
 		Component() {}
 		virtual ~Component() {}

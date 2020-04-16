@@ -16,8 +16,10 @@ IncludeDir["SDL2_ttf"] = "%{prj.name}/thirdparty/SDL2_ttf-2.0.15/include"
 
 project "PeanutButter"
 	location "PeanutButter"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	staticruntime "on"
+
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -95,6 +97,7 @@ project "SandboxGame"
 	{
 		"PeanutButter/thirdparty/spdlog/include",
 		"PeanutButter/thirdparty/SDL2-2.0.12/include",
+		"PeanutButter/thirdparty/SDL2_image-2.0.5/include",
 		"PeanutButter/src"
 	}
 

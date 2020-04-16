@@ -12,10 +12,14 @@ typedef long long pb_int64;
 // ------------------------
 
 #ifdef PB_PLATFORM_WINDOWS
-	#ifdef PB_BUILD_DLL
-		#define PB_API __declspec(dllexport)
+	#ifdef PB_BUILD_DYNAMIC
+		#ifdef PB_BUILD_DLL
+			#define PB_API __declspec(dllexport)
+		#else
+			#define PB_API __declspec(dllimport)
+	#endif
 	#else
-		#define PB_API __declspec(dllimport)
+		#define PB_API
 	#endif
 #endif
 

@@ -8,6 +8,20 @@
 #include "PeanutButter/Log.h"
 // ----------------------------------
 
+// Entity -------------------------------------------
+#include "PeanutButter/Entity/Entity.h"
+#include "PeanutButter/Entity/EntityManager.h"
+#include "PeanutButter/Entity/Component/Component.h"
+#include "PeanutButter/Entity/Component/Transform.h"
+#include "PeanutButter/Entity/Component/Sprite.h"
+// --------------------------------------------------
+
+// UTILS -----------------------------------------
+#include "PeanutButter/Math/Math.h"
+#include "PeanutButter/Utils/TextureManager.h"
+#include "PeanutButter/Utils/AssetManager.h"
+// -----------------------------------------------
+
 // Entry Point ---------------------
 #include "PeanutButter/EntryPoint.h"
 // ---------------------------------

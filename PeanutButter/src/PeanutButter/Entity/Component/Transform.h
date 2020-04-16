@@ -3,13 +3,13 @@
 #include "PeanutButter/Math/Math.h"
 
 namespace PeanutButter {
-	class Transform : public Component {
+	class PB_API Transform : public Component {
 	public:
 		Vector2 Position;
 		Vector2 Rotation;
 		Vector2 Scale;
 
-		Transform() : Position(Vector2::Zero), Rotation(Vector2::Zero), Scale(Vector2::One) {
+		Transform() : Position(Vector2(0, 0)), Rotation(Vector2(0,0)), Scale(Vector2(1,1)) {
 			PB_CORE_INFO("Transform() constructor");
 		}
 

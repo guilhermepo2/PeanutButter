@@ -7,7 +7,7 @@ namespace PeanutButter {
 
 	class Entity;
 
-	class EntityManager {
+	class PB_API EntityManager {
 	public:
 		void Update(float DeltaTime);
 		void Render();

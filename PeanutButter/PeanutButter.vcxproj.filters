@@ -14,7 +14,7 @@
       <UniqueIdentifier>{E120C071-4D37-BE07-96AE-492902048F8F}</UniqueIdentifier>
     </Filter>
     <Filter Include="PeanutButter\Utils">
-      <UniqueIdentifier>{71c820ef-1f99-4699-aac3-76193e130581}</UniqueIdentifier>
+      <UniqueIdentifier>{683E5FAA-5422-2000-BD82-1A53A9850A82}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -26,6 +26,9 @@
       <Filter>PeanutButter</Filter>
     </ClInclude>
     <ClInclude Include="src\PeanutButter\Entity\Component\Component.h">
+      <Filter>PeanutButter\Entity\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PeanutButter\Entity\Component\Sprite.h">
       <Filter>PeanutButter\Entity\Component</Filter>
     </ClInclude>
     <ClInclude Include="src\PeanutButter\Entity\Component\Transform.h">
@@ -49,16 +52,13 @@
     <ClInclude Include="src\PeanutButter\Math\Vector2.h">
       <Filter>PeanutButter\Math</Filter>
     </ClInclude>
-    <ClInclude Include="src\pbpch.h" />
     <ClInclude Include="src\PeanutButter\Utils\AssetManager.h">
       <Filter>PeanutButter\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\PeanutButter\Utils\TextureManager.h">
       <Filter>PeanutButter\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\PeanutButter\Entity\Component\Sprite.h">
-      <Filter>PeanutButter\Entity\Component</Filter>
-    </ClInclude>
+    <ClInclude Include="src\pbpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
@@ -73,12 +73,12 @@
     <ClCompile Include="src\PeanutButter\Log.cpp">
       <Filter>PeanutButter</Filter>
     </ClCompile>
-    <ClCompile Include="src\pbpch.cpp" />
     <ClCompile Include="src\PeanutButter\Utils\AssetManager.cpp">
       <Filter>PeanutButter\Utils</Filter>
     </ClCompile>
     <ClCompile Include="src\PeanutButter\Utils\TextureManager.cpp">
       <Filter>PeanutButter\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="src\pbpch.cpp" />
   </ItemGroup>
 </Project>

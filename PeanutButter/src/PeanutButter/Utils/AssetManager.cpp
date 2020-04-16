@@ -1,7 +1,6 @@
 #include "pbpch.h"
 #include "AssetManager.h"
 
-
 namespace PeanutButter {
 	AssetManager::AssetManager(EntityManager* InManager) : Manager(InManager) {
 

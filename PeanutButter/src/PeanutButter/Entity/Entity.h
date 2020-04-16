@@ -4,7 +4,7 @@
 #include <map>
 
 namespace PeanutButter {
-	class Entity {
+	class PB_API Entity {
 	public:
 		std::string Name;
 		// TODO: Layer

@@ -1,19 +1,20 @@
 #pragma once
 #include <SDL.h>
+#include "PeanutButter/Utils/AssetManager.h"
 #include "PeanutButter/Entity/Component/Component.h"
 #include "PeanutButter/Entity/Component/Transform.h"
 #include "PeanutButter/Application.h"
 #include "PeanutButter/Math/Math.h"
 
 namespace PeanutButter {
-	class Sprite : public Component {
+	class PB_API Sprite : public Component {
 	public:
 		SDL_RendererFlip SpriteFlip = SDL_FLIP_NONE;
 		Vector2 SpriteSize;
 
 		Sprite(const char* Filepath, const Vector2& InSpriteSize) {
 			SetTexture(Filepath);
-			SpriteSize = InSpriteSize;
+			SpriteSize = Vector2(InSpriteSize.x, InSpriteSize.y);
 		}
 
 	private:
@@ -27,8 +28,8 @@ namespace PeanutButter {
 			transform = owner->GetComponentOfType<Transform>();
 			SourceRectangle.x = 0;
 			SourceRectangle.y = 0;
-			SourceRectangle.w = SpriteSize.x;
-			SourceRectangle.h = SpriteSize.y;
+			SourceRectangle.w = static_cast<int>(SpriteSize.x);
+			SourceRectangle.h = static_cast<int>(SpriteSize.y);
 		}
 
 		void Update(float DeltaTime) override {
@@ -36,7 +37,6 @@ namespace PeanutButter {
 			DestinationRectangle.y = static_cast<int>(transform->Position.y);
 			DestinationRectangle.w = static_cast<int>(SpriteSize.x) * static_cast<int>(transform->Scale.x);
 			DestinationRectangle.h = static_cast<int>(SpriteSize.y) * static_cast<int>(transform->Scale.y);
-			// PB_CORE_INFO("Sprite Scale: ({0}, {1})", transform->Scale.x, transform->Scale.y);
 		}
 
 		void Render() override {
