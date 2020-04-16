@@ -1,16 +1,24 @@
 #include "pbpch.h"
 #include "Application.h"
 #include "PeanutButter/Log.h"
+#include "PeanutButter/Utils/AssetManager.h"
+
+#include "PeanutButter/Entity/Entity.h"
+#include "PeanutBUtter/Entity/Component/Transform.h"
+#include "PeanutBUtter/Entity/Component/Sprite.h"
+#include "PeanutButter/Math/Math.h"
 
 const unsigned int FPS = 60;
 const unsigned int FRAME_TARGET_TIME = 1000 / FPS;
 
 namespace PeanutButter {
 
+	EntityManager EManager;
 	bool Application::s_bSDL2Initialized = false;
 	SDL_Renderer* Application::s_Renderer = nullptr;
 	SDL_Window* Application::s_Window = nullptr;
 	SDL_Event Application::ApplicationEvent;
+	AssetManager* Application::s_AssetManager = new AssetManager(&EManager);
 
 	Application::Application() : m_TicksLastFrame(0.0f) {
 		if (!s_bSDL2Initialized) {
@@ -27,6 +35,13 @@ namespace PeanutButter {
 		s_Renderer = SDL_CreateRenderer(s_Window, -1, 0);
 		PB_CORE_ASSERT(s_Renderer, "Could not Create SDL Renderer!");
 		PB_CORE_INFO("Created SDL2 Renderer!");
+
+		s_AssetManager->AddTexture("tank-image", "assets/images/tank-big-right.png");
+		Entity& TankEntity(EManager.AddEntity("tank"));
+		TankEntity.AddComponentOfType<Transform>();
+		TankEntity.GetComponentOfType<Transform>()->Position = Vector2(100, 100);
+		TankEntity.GetComponentOfType<Transform>()->Scale = Vector2(1.0, 1.0);
+		TankEntity.AddComponentOfType<Sprite>("tank-image", Vector2(32, 32));
 
 		m_bIsRunning = true;
 	}
@@ -67,6 +82,7 @@ namespace PeanutButter {
 		m_TicksLastFrame = SDL_GetTicks();
 
 		// Do stuff here...
+		EManager.Update(DeltaTime);
 
 		// Sleep execution until target frame time is reached
 		// TODO: Remove SDL2 dependent code from here
@@ -79,6 +95,10 @@ namespace PeanutButter {
 	void Application::Render() {
 		SDL_SetRenderDrawColor(s_Renderer, 21, 21, 21, 255);
 		SDL_RenderClear(s_Renderer);
+
+		if (EManager.HasEntities()) {
+			EManager.Render();
+		}
 
 		// Swap front and back buffers to render
 		SDL_RenderPresent(s_Renderer);

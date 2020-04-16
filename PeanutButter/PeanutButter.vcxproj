@@ -149,6 +149,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\PeanutButter\Utils\AssetManager.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Component\Sprite.h" />
     <ClInclude Include="src\PeanutButter.h" />
     <ClInclude Include="src\PeanutButter\Application.h" />
     <ClInclude Include="src\PeanutButter\Core.h" />
@@ -161,13 +163,16 @@
     <ClInclude Include="src\PeanutButter\Math\Math.h" />
     <ClInclude Include="src\PeanutButter\Math\Vector2.h" />
     <ClInclude Include="src\pbpch.h" />
+    <ClInclude Include="src\PeanutButter\Utils\TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PeanutButter\Utils\AssetManager.cpp" />
     <ClCompile Include="src\PeanutButter\Application.cpp" />
     <ClCompile Include="src\PeanutButter\Entity\Entity.cpp" />
     <ClCompile Include="src\PeanutButter\Entity\EntityManager.cpp" />
     <ClCompile Include="src\PeanutButter\Log.cpp" />
     <ClCompile Include="src\pbpch.cpp" />
+    <ClCompile Include="src\PeanutButter\Utils\TextureManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

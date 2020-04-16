@@ -1,6 +1,5 @@
 #pragma once
-
-class Entity;
+#include "PeanutButter/Entity/Entity.h"
 
 namespace PeanutButter {
 	class Component {
@@ -9,8 +8,8 @@ namespace PeanutButter {
 		virtual ~Component() {}
 		Entity* owner;
 
-		virtual void Initialize() = 0;
-		virtual void Update(float Deltatime) = 0;
-		virtual void Render() = 0;
+		virtual void Initialize() {}
+		virtual void Update(float Deltatime) {}
+		virtual void Render() {}
 	};
 }

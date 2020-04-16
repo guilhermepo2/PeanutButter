@@ -1,7 +1,7 @@
 #pragma once
-#include "PeanutButter/Core.h"
 #include "EntityManager.h"
 #include "Component/Component.h"
+#include <map>
 
 namespace PeanutButter {
 	class Entity {
