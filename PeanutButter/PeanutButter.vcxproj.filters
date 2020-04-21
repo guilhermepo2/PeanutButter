@@ -60,6 +60,7 @@
     </ClInclude>
     <ClInclude Include="src\pbpch.h" />
     <ClInclude Include="src\PeanutButter\Utils\Animation.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Component\KeyboardControl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">

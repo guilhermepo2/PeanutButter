@@ -17,6 +17,7 @@ public:
 		Entity& Hero(Application::s_EManager->AddEntity("Hero"));
 		Hero.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(2, 2));
 		Hero.AddComponentOfType<Sprite>("hero-character", Vector2(48.0, 48.0), 3, 150);
+		Hero.AddComponentOfType<KeyboardControl>("up", "right", "down", "left");
 	}
 };
 

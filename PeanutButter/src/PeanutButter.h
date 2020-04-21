@@ -14,6 +14,7 @@
 #include "PeanutButter/Entity/Component/Component.h"
 #include "PeanutButter/Entity/Component/Transform.h"
 #include "PeanutButter/Entity/Component/Sprite.h"
+#include "PeanutButter/Entity/Component/KeyboardControl.h"
 // --------------------------------------------------
 
 // UTILS -----------------------------------------
