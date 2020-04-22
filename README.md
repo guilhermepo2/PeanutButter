@@ -1,5 +1,7 @@
 # Peanut Butter Engine
 
+![GitHub](https://img.shields.io/github/license/guilhermepo2/PeanutButter)
+![GitHub repo size](https://img.shields.io/github/repo-size/guilhermepo2/PeanutButter)
 [![Language](https://img.shields.io/badge/language-C++-blue.svg)](https://isocpp.org/)
 [![Standard](https://img.shields.io/badge/c%2B%2B-17-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B17)
 
@@ -44,6 +46,8 @@ Soon.
 ## How to Contribute
 
 Maybe take a look at the issues, wiki, and everything else?
+
+[![GitHub issues](https://img.shields.io/github/issues-raw/guilhermepo2/PeanutButter)](https://github.com/guilhermepo2/PeanutButter/issues)
 
 ## References
 
