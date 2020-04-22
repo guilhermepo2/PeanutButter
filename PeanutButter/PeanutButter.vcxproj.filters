@@ -61,6 +61,8 @@
     <ClInclude Include="src\pbpch.h" />
     <ClInclude Include="src\PeanutButter\Utils\Animation.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\KeyboardControl.h" />
+    <ClInclude Include="src\PeanutButter\Input\Input.h" />
+    <ClInclude Include="src\Platforms\SDL2\SDL2Input.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
@@ -82,5 +84,6 @@
       <Filter>PeanutButter\Utils</Filter>
     </ClCompile>
     <ClCompile Include="src\pbpch.cpp" />
+    <ClCompile Include="src\Platforms\SDL2\SDL2Input.cpp" />
   </ItemGroup>
 </Project>

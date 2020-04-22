@@ -10,5 +10,6 @@ namespace PeanutButter {
 		virtual std::pair<float, float> GetMousePosition_Implementation() override;
 		virtual float GetMouseX_Implementation() override;
 		virtual float GetMouseY_Implementation() override;
+		virtual void Update_Implementation() override;
 	};
 }

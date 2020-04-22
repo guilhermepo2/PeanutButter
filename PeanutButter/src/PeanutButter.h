@@ -17,6 +17,12 @@
 #include "PeanutButter/Entity/Component/KeyboardControl.h"
 // --------------------------------------------------
 
+
+// INPUT -----------------------------------------
+#include "PeanutButter/Input/Input.h"
+// -----------------------------------------------
+
+
 // UTILS -----------------------------------------
 #include "PeanutButter/Math/Math.h"
 #include "PeanutButter/Utils/TextureManager.h"
