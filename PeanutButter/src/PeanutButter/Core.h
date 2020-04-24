@@ -9,7 +9,21 @@ typedef char pb_int8;
 typedef short int pb_int16;
 typedef int pb_int32;
 typedef long long pb_int64;
-// ------------------------
+// ------------------------\
+
+
+// Render Layers ------------------------
+enum ELayerType {
+	ELT_TilemapLayer = 0,
+	ELT_VegetationLayer = 1,
+	ELT_EnemyLayer = 2,
+	ELT_PlayerLayer = 3,
+	ELT_ProjectileLayer = 4,
+	ELT_UILayer = 5
+};
+
+#define NUMBER_OF_LAYERS  6
+// --------------------------------------
 
 #ifdef PB_PLATFORM_WINDOWS
 	#ifdef PB_BUILD_DYNAMIC

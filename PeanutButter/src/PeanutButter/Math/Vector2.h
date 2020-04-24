@@ -16,9 +16,7 @@ namespace PeanutButter {
 		Vector2() : x(0), y(0) {}
 		Vector2(float InX, float InY) : x(InX), y(InY) {}
 		Vector2(const Vector2& Other) : x(Other.x), y(Other.y) {}
-		~Vector2() {
-			PB_CORE_INFO("Destroying Vector2...");
-		}
+		~Vector2() { }
 
 		/** Static properties */
 		/*

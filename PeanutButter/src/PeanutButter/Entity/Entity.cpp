@@ -2,7 +2,7 @@
 #include "Entity.h"
 
 namespace PeanutButter {
-	Entity::Entity(EntityManager& InManager, std::string InName) : EManager(InManager), Name(InName) {
+	Entity::Entity(EntityManager& InManager, std::string InName, ELayerType LayerType) : EManager(InManager), Name(InName), Layer(LayerType) {
 		this->m_bIsActive = true;
 	}
 

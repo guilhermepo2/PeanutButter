@@ -25,6 +25,7 @@
 
 // UTILS -----------------------------------------
 #include "PeanutButter/Math/Math.h"
+#include "PeanutButter/Utils/Map.h"
 #include "PeanutButter/Utils/TextureManager.h"
 #include "PeanutButter/Utils/AssetManager.h"
 // -----------------------------------------------

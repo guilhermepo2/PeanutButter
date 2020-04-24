@@ -11,12 +11,17 @@ public:
 
 		// Loading Sprites into the asset mananager
 		Application::s_AssetManager->AddTexture("tank-image", "assets/images/tank-big-right.png");
+		Application::s_AssetManager->AddTexture("chopper-image", "assets/images/chopper-spritesheet.png");
 		Application::s_AssetManager->AddTexture("hero-character", "assets/chara_hero.png");
+		Application::s_AssetManager->AddTexture("jungle-tilemap", "assets/tilemaps/jungle.png");
+
+		Map* myMap = new Map("jungle-tilemap", 2, 32);
+		myMap->LoadMap("assets/tilemaps/jungle.map", 25, 20);
 
 		// Creating Hero Entity
-		Entity& Hero(Application::s_EManager->AddEntity("Hero"));
-		Hero.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(2, 2));
-		Hero.AddComponentOfType<Sprite>("hero-character", Vector2(48.0, 48.0), 3, 150);
+		Entity& Hero(Application::s_EManager->AddEntity("Hero Chopper", ELayerType::ELT_PlayerLayer));
+		Hero.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(1, 1));
+		Hero.AddComponentOfType<Sprite>("chopper-image", Vector2(32.0, 32.0), 2, 90);
 		Hero.AddComponentOfType<KeyboardControl>("up", "right", "down", "left");
 	}
 };

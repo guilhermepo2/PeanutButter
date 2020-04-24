@@ -63,6 +63,8 @@
     <ClInclude Include="src\PeanutButter\Entity\Component\KeyboardControl.h" />
     <ClInclude Include="src\PeanutButter\Input\Input.h" />
     <ClInclude Include="src\Platforms\SDL2\SDL2Input.h" />
+    <ClInclude Include="src\PeanutButter\Utils\Map.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Component\Tile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
@@ -85,5 +87,6 @@
     </ClCompile>
     <ClCompile Include="src\pbpch.cpp" />
     <ClCompile Include="src\Platforms\SDL2\SDL2Input.cpp" />
+    <ClCompile Include="src\PeanutButter\Utils\Map.cpp" />
   </ItemGroup>
 </Project>

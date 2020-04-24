@@ -7,8 +7,8 @@ namespace PeanutButter {
 	class PB_API Entity {
 	public:
 		std::string Name;
-		// TODO: Layer
-		Entity(EntityManager& InManager, std::string InName);
+		ELayerType Layer;
+		Entity(EntityManager& InManager, std::string InName, ELayerType LayerType);
 
 	protected:
 		EntityManager& EManager;

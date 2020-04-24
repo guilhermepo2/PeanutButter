@@ -155,6 +155,7 @@
     <ClInclude Include="src\PeanutButter\Entity\Component\Component.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\KeyboardControl.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\Sprite.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Component\Tile.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\Transform.h" />
     <ClInclude Include="src\PeanutButter\Entity\Entity.h" />
     <ClInclude Include="src\PeanutButter\Entity\EntityManager.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="src\PeanutButter\Math\Vector2.h" />
     <ClInclude Include="src\PeanutButter\Utils\Animation.h" />
     <ClInclude Include="src\PeanutButter\Utils\AssetManager.h" />
+    <ClInclude Include="src\PeanutButter\Utils\Map.h" />
     <ClInclude Include="src\PeanutButter\Utils\TextureManager.h" />
     <ClInclude Include="src\pbpch.h" />
     <ClInclude Include="src\Platforms\SDL2\SDL2Input.h" />
@@ -175,6 +177,7 @@
     <ClCompile Include="src\PeanutButter\Entity\EntityManager.cpp" />
     <ClCompile Include="src\PeanutButter\Log.cpp" />
     <ClCompile Include="src\PeanutButter\Utils\AssetManager.cpp" />
+    <ClCompile Include="src\PeanutButter\Utils\Map.cpp" />
     <ClCompile Include="src\PeanutButter\Utils\TextureManager.cpp" />
     <ClCompile Include="src\pbpch.cpp" />
     <ClCompile Include="src\Platforms\SDL2\SDL2Input.cpp" />
