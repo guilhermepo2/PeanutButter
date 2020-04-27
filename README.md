@@ -1,5 +1,11 @@
 # Peanut Butter Engine
 
+
+
+![Peanut Butter](https://raw.githubusercontent.com/guilhermepo2/PeanutButter/develop/Branding/peanut-butter-256.png)
+
+Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [flaticon](https://www.flaticon.com)
+
 ![GitHub](https://img.shields.io/github/license/guilhermepo2/PeanutButter)
 ![GitHub repo size](https://img.shields.io/github/repo-size/guilhermepo2/PeanutButter)
 [![Language](https://img.shields.io/badge/language-C++-blue.svg)](https://isocpp.org/)
