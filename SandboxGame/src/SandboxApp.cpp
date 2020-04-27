@@ -18,10 +18,10 @@ public:
 		Map* myMap = new Map("jungle-tilemap", 2, 32);
 		myMap->LoadMap("assets/tilemaps/jungle.map", 25, 20);
 
-		// Creating Hero Entity
+		// Creating Chopper Entity
 		Entity& Hero(Application::s_EManager->AddEntity("Hero Chopper", ELayerType::ELT_PlayerLayer));
 		Hero.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(1, 1));
-		Hero.AddComponentOfType<Sprite>("chopper-image", Vector2(32.0, 32.0), 2, 90);
+		Hero.AddComponentOfType<Sprite>("chopper-image", Vector2(32.0, 32.0), 2, 90, true);
 		Hero.AddComponentOfType<KeyboardControl>("up", "right", "down", "left");
 	}
 };

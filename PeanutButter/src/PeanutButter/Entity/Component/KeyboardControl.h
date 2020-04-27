@@ -55,18 +55,22 @@ namespace PeanutButter {
 				std::string KeyCode = std::to_string(Application::ApplicationEvent.key.keysym.sym);
 				if (KeyCode.compare(UpKey) == 0) {
 					transform->Position->y -= 1;
+					sprite->Play("UpAnimation");
 				}
 
 				if (KeyCode.compare(RightKey) == 0) {
 					transform->Position->x += 1;
+					sprite->Play("RightAnimation");
 				}
 
 				if (KeyCode.compare(DownKey) == 0) {
 					transform->Position->y += 1;
+					sprite->Play("DownAnimation");
 				}
 
 				if (KeyCode.compare(LeftKey) == 0) {
 					transform->Position->x -= 1;
+					sprite->Play("LeftAnimation");
 				}
 			}
 

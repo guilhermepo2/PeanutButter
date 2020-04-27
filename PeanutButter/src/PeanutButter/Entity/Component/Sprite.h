@@ -20,16 +20,33 @@ namespace PeanutButter {
 			SpriteSize = Vector2(InSpriteSize.x, InSpriteSize.y);
 		}
 
-		Sprite(const char* Filepath, const Vector2& InSpriteSize, pb_uint8 InNumberOfFrames, pb_uint8 InAnimationSpeed) {
+		Sprite(const char* Filepath, const Vector2& InSpriteSize, pb_uint8 InNumberOfFrames, pb_uint8 InAnimationSpeed, bool InHasDirection) {
 			m_bIsAnimated = true;
 			SpriteSize = Vector2(InSpriteSize.x, InSpriteSize.y);
 			m_NumberOfFrames = InNumberOfFrames;
 			m_AnimationSpeed = InAnimationSpeed;
 
-			// TODO: Have Animation in its own component and have a better interface for adding and playing animations
-			m_AnimationList.emplace("SingleAnimation", Animation(0, m_NumberOfFrames, m_AnimationSpeed));
-			m_CurrentAnimationIndex = 0;
-			Play("SingleAnimation");
+			if (InHasDirection) {
+				Animation DownAnimation = Animation(0, InNumberOfFrames, InAnimationSpeed);
+				Animation RightAnimation = Animation(1, InNumberOfFrames, InAnimationSpeed);
+				Animation LeftAnimation = Animation(2, InNumberOfFrames, InAnimationSpeed);
+				Animation UpAnimation = Animation(3, InNumberOfFrames, InAnimationSpeed);
+
+				m_AnimationList.emplace("DownAnimation", DownAnimation);
+				m_AnimationList.emplace("RightAnimation", RightAnimation);
+				m_AnimationList.emplace("LeftAnimation", LeftAnimation);
+				m_AnimationList.emplace("UpAnimation", UpAnimation);
+
+				m_CurrentAnimationIndex = 0;
+				m_CurrentAnimationName = "DownAnimation";
+			}
+			else {
+				m_AnimationList.emplace("SingleAnimation", Animation(0, m_NumberOfFrames, m_AnimationSpeed));
+				m_CurrentAnimationIndex = 0;
+				this->m_CurrentAnimationName = "SingleAnimation";
+			}
+
+			Play(m_CurrentAnimationName);
 			SetTexture(Filepath);
 		}
 
@@ -45,13 +62,6 @@ namespace PeanutButter {
 		std::map<const char*, Animation> m_AnimationList;
 		pb_uint8 m_CurrentAnimationIndex;
 		const char* m_CurrentAnimationName;
-
-		void Play(const char* AnimationName) {
-			m_NumberOfFrames = m_AnimationList[AnimationName].NumberOfFrames;
-			m_CurrentAnimationIndex = m_AnimationList[AnimationName].Index;
-			m_AnimationSpeed = m_AnimationList[AnimationName].AnimationSpeed;
-			m_CurrentAnimationName = AnimationName;
-		}
 
 	public:
 		void Initialize() override {
@@ -77,6 +87,13 @@ namespace PeanutButter {
 		void Render() override {
 			// PB_CORE_INFO("Rendering Sprite on Position {0} {1}", transform->Position->x, transform->Position->y);
 			TextureManager::Draw(Texture, SourceRectangle, DestinationRectangle, SpriteFlip);
+		}
+
+		void Play(const char* AnimationName) {
+			m_NumberOfFrames = m_AnimationList[AnimationName].NumberOfFrames;
+			m_CurrentAnimationIndex = m_AnimationList[AnimationName].Index;
+			m_AnimationSpeed = m_AnimationList[AnimationName].AnimationSpeed;
+			m_CurrentAnimationName = AnimationName;
 		}
 
 		inline void SetTexture(const char* TextureID) { Texture = Application::s_AssetManager->GetTexture(TextureID); }
