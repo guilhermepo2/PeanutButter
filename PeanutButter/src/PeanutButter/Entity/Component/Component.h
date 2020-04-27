@@ -2,6 +2,9 @@
 #include "PeanutButter/Entity/Entity.h"
 
 namespace PeanutButter {
+
+	class Entity;
+
 	class PB_API Component {
 	public:
 		Component() {}

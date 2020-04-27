@@ -1,5 +1,6 @@
 #include "pbpch.h"
 #include "Entity.h"
+#include "Component/Component.h"
 
 namespace PeanutButter {
 	Entity::Entity(EntityManager& InManager, std::string InName, ELayerType LayerType) : EManager(InManager), Name(InName), Layer(LayerType) {

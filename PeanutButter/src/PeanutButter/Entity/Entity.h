@@ -1,9 +1,11 @@
 #pragma once
 #include "EntityManager.h"
-#include "Component/Component.h"
 #include <map>
+#include <typeinfo>
 
 namespace PeanutButter {
+	class Component;
+
 	class PB_API Entity {
 	public:
 		std::string Name;

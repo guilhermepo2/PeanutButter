@@ -10,7 +10,6 @@ namespace PeanutButter {
 		Vector2* Scale;
 
 		Transform() {
-			PB_CORE_INFO("Transform() constructor");
 			Position = new Vector2(0, 0);
 			Rotation = new Vector2(0, 0);
 			Scale = new Vector2(1.0, 1.0);

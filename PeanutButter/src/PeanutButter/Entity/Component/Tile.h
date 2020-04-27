@@ -37,7 +37,8 @@ namespace PeanutButter {
 		}
 
 		void Update(float DeltaTime) override {
-			// TODO...
+			DestinationRectangle.x = Position.x - Application::s_Camera.x;
+			DestinationRectangle.y = Position.y - Application::s_Camera.y;
 		}
 
 		void Render() override {

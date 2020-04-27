@@ -78,8 +78,8 @@ namespace PeanutButter {
 			}
 			SourceRectangle.y = m_CurrentAnimationIndex * static_cast<int>(SpriteSize.y);
 
-			DestinationRectangle.x = static_cast<int>(transform->Position->x);
-			DestinationRectangle.y = static_cast<int>(transform->Position->y);
+			DestinationRectangle.x = static_cast<int>(transform->Position->x) - Application::s_Camera.x;
+			DestinationRectangle.y = static_cast<int>(transform->Position->y) - Application::s_Camera.y;
 			DestinationRectangle.w = static_cast<int>(SpriteSize.x) * static_cast<int>(transform->Scale->x);
 			DestinationRectangle.h = static_cast<int>(SpriteSize.y) * static_cast<int>(transform->Scale->y);
 		}

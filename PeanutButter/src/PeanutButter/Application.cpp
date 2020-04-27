@@ -2,9 +2,6 @@
 #include "Application.h"
 #include "PeanutButter/Log.h"
 #include "PeanutButter/Utils/AssetManager.h"
-
-#include "PeanutButter/Entity/Entity.h"
-#include "PeanutBUtter/Entity/Component/Transform.h"
 #include "PeanutBUtter/Entity/Component/Sprite.h"
 #include "PeanutButter/Math/Math.h"
 
@@ -19,6 +16,7 @@ namespace PeanutButter {
 	SDL_Window* Application::s_Window = nullptr;
 	SDL_Event Application::ApplicationEvent;
 	AssetManager* Application::s_AssetManager = new AssetManager(s_EManager);
+	SDL_Rect Application::s_Camera = { 0, 0, 640, 360};
 
 	Application::Application() : m_TicksLastFrame(0.0f) {
 		Initialize();
@@ -90,8 +88,24 @@ namespace PeanutButter {
 	}
 
 	void Application::Update(float DeltaTime) {
-		// Do stuff here...
 		s_EManager->Update(DeltaTime);
+		HandleCameraMovement();
+	}
+
+	void Application::HandleCameraMovement() {
+		if (m_pTransformToFollow == nullptr) {
+			return;
+		}
+
+		// TODO: Remove magic numbers from here
+		s_Camera.x = m_pTransformToFollow->Position->x -320;
+		s_Camera.y = m_pTransformToFollow->Position->y - 180;
+
+		// Clamping camera values
+		s_Camera.x = s_Camera.x < 0 ? 0 : s_Camera.x;
+		s_Camera.y = s_Camera.y < 0 ? 0 : s_Camera.y;
+		s_Camera.x = s_Camera.x > s_Camera.w ? s_Camera.w : s_Camera.x;
+		s_Camera.y = s_Camera.y > s_Camera.h ? s_Camera.h : s_Camera.y;
 	}
 
 	void Application::Render() {
