@@ -354,3 +354,9 @@ MigrationBackup/
 **/bin/
 !thirdparty/bin/
 bin-int/
+
+# Visual Studio files
+**.sln/
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
