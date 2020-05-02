@@ -352,5 +352,5 @@ MigrationBackup/
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Peanut Butter Ignore Directories
 **/bin/
-!thirdparty/bin/premake
+!thirdparty/bin/
 bin-int/
