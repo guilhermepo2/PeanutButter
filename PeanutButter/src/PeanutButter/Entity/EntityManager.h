@@ -18,11 +18,12 @@ namespace PeanutButter {
 
 	public:
 		Entity& AddEntity(std::string EntityName, ELayerType LayerType);
-
-		// TODO Get All Entities by Layer
 		inline std::vector<Entity*> GetAllEntities() const { return m_AllEntities; }
 		inline pb_uint16 GetEntitiesCount() const { return m_AllEntities.size(); }
 		std::vector<Entity*> GetEntitiesByLayer(ELayerType Layer) const;
 		inline bool HasEntities() const { return m_AllEntities.size() != 0; }
+
+		// TODO: Is this the better place for this?
+		ECollisionType CheckCollisionOnAllEntities() const;
 	};
 }

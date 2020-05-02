@@ -25,6 +25,13 @@ enum ELayerType {
 #define NUMBER_OF_LAYERS  6
 // --------------------------------------
 
+// Collision Layers ----------------------
+enum ECollisionType {
+	ECL_NoCollision = 0,
+	ECL_Collision = 1
+};
+// --------------------------------------
+
 #ifdef PB_PLATFORM_WINDOWS
 	#ifdef PB_BUILD_DYNAMIC
 		#ifdef PB_BUILD_DLL

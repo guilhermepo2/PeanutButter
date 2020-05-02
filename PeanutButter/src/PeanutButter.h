@@ -15,6 +15,7 @@
 #include "PeanutButter/Entity/Component/Transform.h"
 #include "PeanutButter/Entity/Component/Sprite.h"
 #include "PeanutButter/Entity/Component/KeyboardControl.h"
+#include "PeanutButter/Entity/Component/Collider2D.h"
 // --------------------------------------------------
 
 

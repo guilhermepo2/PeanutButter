@@ -90,6 +90,7 @@ namespace PeanutButter {
 	void Application::Update(float DeltaTime) {
 		s_EManager->Update(DeltaTime);
 		HandleCameraMovement();
+		CheckCollision();
 	}
 
 	void Application::HandleCameraMovement() {
@@ -106,6 +107,10 @@ namespace PeanutButter {
 		s_Camera.y = s_Camera.y < 0 ? 0 : s_Camera.y;
 		s_Camera.x = s_Camera.x > s_Camera.w ? s_Camera.w : s_Camera.x;
 		s_Camera.y = s_Camera.y > s_Camera.h ? s_Camera.h : s_Camera.y;
+	}
+
+	void Application::CheckCollision() {
+		ECollisionType Collision = s_EManager->CheckCollisionOnAllEntities();
 	}
 
 	void Application::Render() {

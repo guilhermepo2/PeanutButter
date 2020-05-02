@@ -42,7 +42,7 @@ namespace PeanutButter {
 
 		template<typename T>
 		bool HasComponentOfType() const {
-			return ComponentTypeMap.count(&typeid(T));
+			return m_ComponentTypeMap.count(&typeid(T));
 		}
 	};
 

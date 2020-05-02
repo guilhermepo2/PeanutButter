@@ -23,7 +23,7 @@ namespace PeanutButter {
 				int SourceY = atoi(&ch) * TileSize;
 				MapFile.get(ch);
 				int SourceX = atoi(&ch) * TileSize;
-				PB_CORE_INFO("Tile {0},{1} on position {2},{3}", SourceX / TileSize, SourceY / TileSize, x * (Scale * TileSize), y * (Scale * TileSize));
+				// PB_CORE_INFO("Tile {0},{1} on position {2},{3}", SourceX / TileSize, SourceY / TileSize, x * (Scale * TileSize), y * (Scale * TileSize));
 				AddTile(SourceX, SourceY, x * (Scale * TileSize), y * (Scale * TileSize));
 				MapFile.ignore();
 			}

@@ -1,6 +1,9 @@
 #include "pbpch.h"
+#include "PeanutButter/Log.h"
 #include "EntityManager.h"
 #include "Entity.h"
+#include "PeanutButter/Physics/Collision.h"
+#include "PeanutButter/Entity/Component/Collider2D.h"
 
 namespace PeanutButter {
 	void EntityManager::Update(float DeltaTime) {
@@ -11,13 +14,11 @@ namespace PeanutButter {
 
 	void EntityManager::Render() {
 		for (int i = 0; i < NUMBER_OF_LAYERS; i++) {
-			for (Entity* _Entity : m_AllEntities) {
+			std::vector<Entity*> ThisLayer = GetEntitiesByLayer(static_cast<ELayerType>(i));
 
+			for (Entity* _Entity : ThisLayer) {
+				_Entity->Render();
 			}
-		}
-		// TODO Render based on Layers
-		for (Entity* _Entity : m_AllEntities) {
-			_Entity->Render();
 		}
 	}
 
@@ -43,5 +44,29 @@ namespace PeanutButter {
 		}
 
 		return Entities;
+	}
+
+	ECollisionType EntityManager::CheckCollisionOnAllEntities() const {
+		for (Entity* ThisEntity : m_AllEntities) {
+			if (ThisEntity->HasComponentOfType<Collider2D>()) {
+				Collider2D* ThisCollider = ThisEntity->GetComponentOfType<Collider2D>();
+
+				for (Entity* OtherEntity : m_AllEntities) {
+					if (
+						OtherEntity->Name.compare(ThisEntity->Name) != 0 &&
+						OtherEntity->HasComponentOfType<Collider2D>()
+						) {
+						Collider2D* OtherCollider = OtherEntity->GetComponentOfType<Collider2D>();
+
+						if (Collision::CheckRectangleCollision(ThisCollider->Collider, OtherCollider->Collider)) {
+							// PB_CORE_INFO("Collision between {0} and {1}", ThisEntity->Name, OtherEntity->Name);
+							return ECL_Collision;
+						}
+					}
+				}
+			}
+		}
+
+		return ECL_NoCollision;
 	}
 }

@@ -31,6 +31,7 @@ namespace PeanutButter {
 		void Render();
 		void HandleCameraMovement();
 		Transform* m_pTransformToFollow = nullptr;
+		void CheckCollision();
 
 	private:
 		void Initialize();
