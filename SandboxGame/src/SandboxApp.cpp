@@ -15,8 +15,8 @@ public:
 		Application::s_AssetManager->AddTexture("hero-character", "assets/chara_hero.png");
 		Application::s_AssetManager->AddTexture("jungle-tilemap", "assets/tilemaps/jungle.png");
 
-		// Map* myMap = new Map("jungle-tilemap", 2, 32);
-		// myMap->LoadMap("assets/tilemaps/jungle.map", 25, 20);
+		Map* myMap = new Map("jungle-tilemap", 2, 32);
+		myMap->LoadMap("assets/tilemaps/jungle.map", 25, 20);
 
 		// Creating Chopper Entity
 		Entity& Hero(Application::s_EManager->AddEntity("Hero Chopper", ELayerType::ELT_PlayerLayer));
