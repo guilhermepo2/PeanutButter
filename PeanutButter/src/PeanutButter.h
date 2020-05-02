@@ -22,6 +22,10 @@
 #include "PeanutButter/Input/Input.h"
 // -----------------------------------------------
 
+// PHYSICS ---------------------------------------
+#include "PeanutButter/Physics/Collision.h"
+// -----------------------------------------------
+
 
 // UTILS -----------------------------------------
 #include "PeanutButter/Math/Math.h"
