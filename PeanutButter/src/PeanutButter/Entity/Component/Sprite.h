@@ -75,8 +75,8 @@ namespace PeanutButter {
 		void Update(float DeltaTime) override {
 			if (m_bIsAnimated) {
 				SourceRectangle.x = SourceRectangle.w * static_cast<int>((SDL_GetTicks() / m_AnimationSpeed) % m_NumberOfFrames);
+				SourceRectangle.y = m_CurrentAnimationIndex * static_cast<int>(SpriteSize.y);
 			}
-			SourceRectangle.y = m_CurrentAnimationIndex * static_cast<int>(SpriteSize.y);
 
 			DestinationRectangle.x = static_cast<int>(transform->Position->x) - Application::s_Camera.x;
 			DestinationRectangle.y = static_cast<int>(transform->Position->y) - Application::s_Camera.y;
