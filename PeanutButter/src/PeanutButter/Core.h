@@ -38,6 +38,7 @@ const SDL_Color PB_COLOR_WHITE = { 255, 255, 255, 255 };
 const SDL_Color PB_COLOR_RED = { 255, 0, 0, 255 };
 const SDL_Color PB_COLOR_GREEN = { 0, 255, 0, 255 };
 const SDL_Color PB_COLOR_BLUE = { 0, 0, 255, 255 };
+#define PB_COLOR(...) SDL_Color { __VA_ARGS__ }
 // --------------------------------------
 
 #ifdef PB_PLATFORM_WINDOWS

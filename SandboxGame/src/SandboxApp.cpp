@@ -34,7 +34,7 @@ public:
 
 		// Adding font entity...
 		Entity& Label(Application::s_EManager->AddEntity("LevelName", ELayerType::ELT_UILayer));
-		Label.AddComponentOfType<UIText>(Vector2(10.0, 10.0), "EH TETRAAAAAAAAAAAAAAA", "charriot-font", PB_COLOR_WHITE);
+		Label.AddComponentOfType<UIText>(Vector2(10.0, 10.0), "First Level", "charriot-font", PB_COLOR(255, 255, 255, 255) );
 
 		Application::SetTransformToFollow(Hero.GetComponentOfType<Transform>());
 	}
