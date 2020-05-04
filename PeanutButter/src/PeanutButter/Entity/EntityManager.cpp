@@ -46,6 +46,8 @@ namespace PeanutButter {
 		return Entities;
 	}
 
+	// TODO: This is bad - it checks all entities for one collision
+	// This ideally should be done on the Collider Component, each collider should check if they collided with something and take from there...
 	ECollisionType EntityManager::CheckCollisionOnAllEntities() const {
 		for (Entity* ThisEntity : m_AllEntities) {
 			if (ThisEntity->HasComponentOfType<Collider2D>()) {

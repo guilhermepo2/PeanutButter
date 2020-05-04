@@ -31,12 +31,14 @@ namespace PeanutButter {
 				SourceRectangle = { 0, 0, static_cast<int>(ColliderSize.x), static_cast<int>(ColliderSize.y) };
 				DestinationRectangle = { Collider.x, Collider.y, Collider.w, Collider.h };
 			}
+			else {
+				PB_CORE_WARNING("Trying to initialize Collider2D but Entity doesn't have a Transform!");
+			}
 		}
 
 		void Update(float DeltaTime) override {
 			Collider.x = static_cast<int>(transform->Position->x);
 			Collider.y = static_cast<int>(transform->Position->y);
-			// TODO: Multiply Collider width and height with the transform scale? Is it needed?
 			Collider.w = ColliderSize.x * transform->Scale->x;
 			Collider.h = ColliderSize.y * transform->Scale->y;
 
