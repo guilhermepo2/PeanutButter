@@ -1,4 +1,5 @@
 #pragma once
+#include <SDL.h> // oh no
 
 // Peanut Butter Data Types
 typedef unsigned char pb_uint8;
@@ -30,6 +31,13 @@ enum ECollisionType {
 	ECL_NoCollision = 0,
 	ECL_Collision = 1
 };
+// --------------------------------------
+
+// Colors -------------------------------
+const SDL_Color PB_COLOR_WHITE = { 255, 255, 255, 255 };
+const SDL_Color PB_COLOR_RED = { 255, 0, 0, 255 };
+const SDL_Color PB_COLOR_GREEN = { 0, 255, 0, 255 };
+const SDL_Color PB_COLOR_BLUE = { 0, 0, 255, 255 };
 // --------------------------------------
 
 #ifdef PB_PLATFORM_WINDOWS

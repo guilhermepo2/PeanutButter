@@ -98,6 +98,7 @@ project "SandboxGame"
 		"PeanutButter/thirdparty/spdlog/include",
 		"PeanutButter/thirdparty/SDL2-2.0.12/include",
 		"PeanutButter/thirdparty/SDL2_image-2.0.5/include",
+		"PeanutButter/thirdparty/SDL2_ttf-2.0.15/include",
 		"PeanutButter/src"
 	}
 

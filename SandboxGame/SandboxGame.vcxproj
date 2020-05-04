@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>PB_PLATFORM_WINDOWS;PB_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\PeanutButter\thirdparty\spdlog\include;..\PeanutButter\thirdparty\SDL2-2.0.12\include;..\PeanutButter\thirdparty\SDL2_image-2.0.5\include;..\PeanutButter\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\PeanutButter\thirdparty\SDL2_ttf-2.0.15\include;..\PeanutButter\thirdparty\spdlog\include;..\PeanutButter\thirdparty\SDL2-2.0.12\include;..\PeanutButter\thirdparty\SDL2_image-2.0.5\include;..\PeanutButter\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>

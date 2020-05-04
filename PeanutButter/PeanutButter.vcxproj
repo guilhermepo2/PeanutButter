@@ -158,6 +158,7 @@
     <ClInclude Include="src\PeanutButter\Entity\Component\Sprite.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\Tile.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\Transform.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Component\UIText.h" />
     <ClInclude Include="src\PeanutButter\Entity\Entity.h" />
     <ClInclude Include="src\PeanutButter\Entity\EntityManager.h" />
     <ClInclude Include="src\PeanutButter\EntryPoint.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="src\PeanutButter\Physics\Collision.h" />
     <ClInclude Include="src\PeanutButter\Utils\Animation.h" />
     <ClInclude Include="src\PeanutButter\Utils\AssetManager.h" />
+    <ClInclude Include="src\PeanutButter\Utils\FontManager.h" />
     <ClInclude Include="src\PeanutButter\Utils\Map.h" />
     <ClInclude Include="src\PeanutButter\Utils\TextureManager.h" />
     <ClInclude Include="src\pbpch.h" />
@@ -180,6 +182,7 @@
     <ClCompile Include="src\PeanutButter\Log.cpp" />
     <ClCompile Include="src\PeanutButter\Physics\Collision.cpp" />
     <ClCompile Include="src\PeanutButter\Utils\AssetManager.cpp" />
+    <ClCompile Include="src\PeanutButter\Utils\FontManager.cpp" />
     <ClCompile Include="src\PeanutButter\Utils\Map.cpp" />
     <ClCompile Include="src\PeanutButter\Utils\TextureManager.cpp" />
     <ClCompile Include="src\pbpch.cpp" />

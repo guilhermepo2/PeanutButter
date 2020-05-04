@@ -67,6 +67,8 @@
     <ClInclude Include="src\PeanutButter\Entity\Component\Tile.h" />
     <ClInclude Include="src\PeanutButter\Physics\Collision.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\Collider2D.h" />
+    <ClInclude Include="src\PeanutButter\Utils\FontManager.h" />
+    <ClInclude Include="src\PeanutButter\Entity\Component\UIText.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
@@ -91,5 +93,6 @@
     <ClCompile Include="src\Platforms\SDL2\SDL2Input.cpp" />
     <ClCompile Include="src\PeanutButter\Utils\Map.cpp" />
     <ClCompile Include="src\PeanutButter\Physics\Collision.cpp" />
+    <ClCompile Include="src\PeanutButter\Utils\FontManager.cpp" />
   </ItemGroup>
 </Project>

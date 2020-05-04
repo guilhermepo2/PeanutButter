@@ -27,12 +27,16 @@
 #include "PeanutButter/Physics/Collision.h"
 // -----------------------------------------------
 
+// UI --------------------------------------------
+#include "PeanutButter/Entity/Component/UIText.h"
+// -----------------------------------------------
 
 // UTILS -----------------------------------------
 #include "PeanutButter/Math/Math.h"
 #include "PeanutButter/Utils/Map.h"
-#include "PeanutButter/Utils/TextureManager.h"
 #include "PeanutButter/Utils/AssetManager.h"
+#include "PeanutButter/Utils/FontManager.h"
+#include "PeanutButter/Utils/TextureManager.h"
 // -----------------------------------------------
 
 // Entry Point ---------------------

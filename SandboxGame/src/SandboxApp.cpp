@@ -14,6 +14,7 @@ public:
 		Application::s_AssetManager->AddTexture("chopper-image", "assets/images/chopper-spritesheet.png");
 		Application::s_AssetManager->AddTexture("hero-character", "assets/chara_hero.png");
 		Application::s_AssetManager->AddTexture("jungle-tilemap", "assets/tilemaps/jungle.png");
+		Application::s_AssetManager->AddFont("charriot-font", "assets/fonts/charriot.ttf", 14);
 
 		Map* myMap = new Map("jungle-tilemap", 2, 32);
 		myMap->LoadMap("assets/tilemaps/jungle.map", 25, 20);
@@ -30,6 +31,10 @@ public:
 		Tank.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(1, 1));
 		Tank.AddComponentOfType<Sprite>("tank-image", Vector2(32.0, 32.0));
 		Tank.AddComponentOfType<Collider2D>("Enemy", Vector2(0, 0), Vector2(32, 32));
+
+		// Adding font entity...
+		Entity& Label(Application::s_EManager->AddEntity("LevelName", ELayerType::ELT_UILayer));
+		Label.AddComponentOfType<UIText>(Vector2(10.0, 10.0), "EH TETRAAAAAAAAAAAAAAA", "charriot-font", PB_COLOR_WHITE);
 
 		Application::SetTransformToFollow(Hero.GetComponentOfType<Transform>());
 	}
