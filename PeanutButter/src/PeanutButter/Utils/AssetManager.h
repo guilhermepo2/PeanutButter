@@ -15,14 +15,14 @@ namespace PeanutButter {
 
 	private:
 		EntityManager* Manager;
-		std::map<const char*, SDL_Texture*> m_Textures;
+		std::map<std::string, SDL_Texture*> m_Textures;
 		std::map<std::string, TTF_Font*> m_Fonts;
 
 	public:
 		void ClearData();
-		void AddTexture(const char* TextureID, const char* Filepath);
-		void AddFont(const char* FontID, const char* Filepath, int FontSize);
-		SDL_Texture* GetTexture(const char* TextureID);
-		TTF_Font* GetFont(const char* FontID);
+		void AddTexture(std::string TextureID, std::string Filepath);
+		void AddFont(std::string FontID, std::string Filepath, int FontSize);
+		SDL_Texture* GetTexture(std::string TextureID);
+		TTF_Font* GetFont(std::string FontID);
 	};
 }

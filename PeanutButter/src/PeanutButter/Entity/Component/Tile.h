@@ -16,7 +16,7 @@ namespace PeanutButter {
 		SDL_Rect DestinationRectangle;
 		Vector2 Position;
 
-		Tile(int SourceX, int SourceY, int X, int Y, int TileSize, int TileScale, const char* TextureID) {
+		Tile(int SourceX, int SourceY, int X, int Y, int TileSize, int TileScale, std::string TextureID) {
 			Texture = Application::s_AssetManager->GetTexture(TextureID);
 			SourceRectangle.x = SourceX;
 			SourceRectangle.y = SourceY;

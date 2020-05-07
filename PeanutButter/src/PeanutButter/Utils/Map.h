@@ -5,16 +5,16 @@
 namespace PeanutButter {
 	class PB_API Map {
 	public:
-		Map(const char* InTextureID, int InScale, int InTileSize);
+		Map(std::string InTextureID, int InScale, int InTileSize);
 		~Map();
 
 	private:
-		const char* TextureID;
+		std::string TextureID;
 		int Scale;
 		int TileSize;
 
 	public:
-		void LoadMap(const char* Filepath, int MapX, int MapY);
+		void LoadMap(std::string Filepath, int MapX, int MapY);
 		void AddTile(int SourceX, int SourceY, int X, int Y);
 	};
 }

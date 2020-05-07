@@ -12,20 +12,20 @@ namespace PeanutButter {
 		m_Fonts.clear();
 	}
 
-	void AssetManager::AddTexture(const char* TextureID, const char* Filepath) {
+	void AssetManager::AddTexture(std::string TextureID, std::string Filepath) {
 		m_Textures.emplace(TextureID, TextureManager::LoadTexture(Filepath));
 	}
 
-	void AssetManager::AddFont(const char* FontID, const char* Filepath, int FontSize) {
+	void AssetManager::AddFont(std::string FontID, std::string Filepath, int FontSize) {
 		PB_CORE_INFO("Emplacing Font {0} with Filepath {1}", FontID, Filepath);
 		m_Fonts.emplace(std::string(FontID), FontManager::LoadFont(Filepath, FontSize));
 	}
 
-	SDL_Texture* AssetManager::GetTexture(const char* TextureID) {
+	SDL_Texture* AssetManager::GetTexture(std::string TextureID) {
 		return m_Textures[TextureID];
 	}
 
-	TTF_Font* AssetManager::GetFont(const char* FontID) {
+	TTF_Font* AssetManager::GetFont(std::string FontID) {
 		return m_Fonts[FontID];
 	}
 }

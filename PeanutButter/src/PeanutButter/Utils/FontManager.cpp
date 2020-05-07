@@ -4,10 +4,10 @@
 #include <SDL.h>
 
 namespace PeanutButter {
-	TTF_Font* FontManager::LoadFont(const char* Filepath, int FontSize) {
+	TTF_Font* FontManager::LoadFont(std::string Filepath, int FontSize) {
 		PB_CORE_INFO("Loading font on path {0}", Filepath);
 
-		TTF_Font* FontLoaded = TTF_OpenFont(Filepath, FontSize);
+		TTF_Font* FontLoaded = TTF_OpenFont(Filepath.c_str(), FontSize);
 
 		if (FontLoaded == nullptr) {
 			PB_CORE_ERROR("Could not load font!");

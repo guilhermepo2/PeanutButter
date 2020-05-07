@@ -7,14 +7,14 @@
 namespace PeanutButter {
 	class PB_API Collider2D : public Component {
 	public:
-		const char* ColliderTag;
+		std::string ColliderTag;
 		SDL_Rect Collider;
 		SDL_Rect SourceRectangle;
 		SDL_Rect DestinationRectangle;
 		Transform* transform;
 		Vector2 ColliderSize;
 
-		Collider2D(const char* ColliderTag, Vector2 Position, Vector2 Size) {
+		Collider2D(std::string ColliderTag, Vector2 Position, Vector2 Size) {
 			this->ColliderTag = ColliderTag;
 			this->Collider = { static_cast<int>(Position.x), static_cast<int>(Position.y), static_cast<int>(Size.x), static_cast<int>(Size.y) };
 			this->ColliderSize = Size;

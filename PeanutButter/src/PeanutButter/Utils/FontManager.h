@@ -5,7 +5,7 @@
 namespace PeanutButter {
 	class FontManager {
 	public:
-		static TTF_Font* LoadFont(const char* Filepath, int FontSize);
+		static TTF_Font* LoadFont(std::string Filepath, int FontSize);
 		static void DrawFont(SDL_Texture* Texture, SDL_Rect Position);
 	};
 }

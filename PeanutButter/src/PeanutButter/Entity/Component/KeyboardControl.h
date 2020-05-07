@@ -14,7 +14,7 @@ namespace PeanutButter {
 		Sprite* sprite;
 
 		KeyboardControl() {}
-		KeyboardControl(const char* InUpKey, const char* InRightKey, const char* InDownKey, const char* InLeftKey) {
+		KeyboardControl(std::string InUpKey, std::string InRightKey, std::string InDownKey, std::string InLeftKey) {
 			this->UpKey = GetSDLKeyStringCode(std::string(InUpKey));
 			this->RightKey = GetSDLKeyStringCode(std::string(InRightKey));
 			this->DownKey = GetSDLKeyStringCode(std::string(InDownKey));

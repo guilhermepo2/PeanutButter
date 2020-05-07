@@ -5,14 +5,14 @@
 #include "PeanutButter/Entity/Component/Tile.h"
 
 namespace PeanutButter {
-	Map::Map(const char* InTextureID, int InScale, int InTileSize) {
+	Map::Map(std::string InTextureID, int InScale, int InTileSize) {
 		TextureID = InTextureID;
 		Scale = InScale;
 		TileSize = InTileSize;
 	}
 
 	
-	void Map::LoadMap(const char* Filepath, int MapX, int MapY) {
+	void Map::LoadMap(std::string Filepath, int MapX, int MapY) {
 		std::fstream MapFile;
 		MapFile.open(Filepath);
 

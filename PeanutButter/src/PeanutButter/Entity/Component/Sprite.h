@@ -14,13 +14,13 @@ namespace PeanutButter {
 		SDL_RendererFlip SpriteFlip = SDL_FLIP_NONE;
 		Vector2 SpriteSize;
 
-		Sprite(const char* Filepath, const Vector2& InSpriteSize) {
+		Sprite(std::string Filepath, const Vector2& InSpriteSize) {
 			m_bIsAnimated = false;
 			SetTexture(Filepath);
 			SpriteSize = Vector2(InSpriteSize.x, InSpriteSize.y);
 		}
 
-		Sprite(const char* Filepath, const Vector2& InSpriteSize, pb_uint8 InNumberOfFrames, pb_uint8 InAnimationSpeed, bool InHasDirection) {
+		Sprite(std::string Filepath, const Vector2& InSpriteSize, pb_uint8 InNumberOfFrames, pb_uint8 InAnimationSpeed, bool InHasDirection) {
 			m_bIsAnimated = true;
 			SpriteSize = Vector2(InSpriteSize.x, InSpriteSize.y);
 			m_NumberOfFrames = InNumberOfFrames;
@@ -59,9 +59,9 @@ namespace PeanutButter {
 		bool m_bIsAnimated;
 		pb_uint8 m_NumberOfFrames;
 		pb_uint8 m_AnimationSpeed;
-		std::map<const char*, Animation> m_AnimationList;
+		std::map<std::string, Animation> m_AnimationList;
 		pb_uint8 m_CurrentAnimationIndex;
-		const char* m_CurrentAnimationName;
+		std::string m_CurrentAnimationName;
 
 	public:
 		void Initialize() override {
@@ -89,13 +89,13 @@ namespace PeanutButter {
 			TextureManager::Draw(Texture, SourceRectangle, DestinationRectangle, SpriteFlip);
 		}
 
-		void Play(const char* AnimationName) {
+		void Play(std::string AnimationName) {
 			m_NumberOfFrames = m_AnimationList[AnimationName].NumberOfFrames;
 			m_CurrentAnimationIndex = m_AnimationList[AnimationName].Index;
 			m_AnimationSpeed = m_AnimationList[AnimationName].AnimationSpeed;
 			m_CurrentAnimationName = AnimationName;
 		}
 
-		inline void SetTexture(const char* TextureID) { Texture = Application::s_AssetManager->GetTexture(TextureID); }
+		inline void SetTexture(std::string TextureID) { Texture = Application::s_AssetManager->GetTexture(TextureID); }
 	};
 }

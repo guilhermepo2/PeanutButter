@@ -6,7 +6,7 @@
 namespace PeanutButter {
 	class PB_API TextureManager {
 	public:
-		static SDL_Texture* LoadTexture(const char* Filename);
+		static SDL_Texture* LoadTexture(std::string Filename);
 		static void Draw(SDL_Texture* Texture, const SDL_Rect& SourceRectangle, const SDL_Rect& DestinationRectangle, const SDL_RendererFlip& Flip);
 	};
 }

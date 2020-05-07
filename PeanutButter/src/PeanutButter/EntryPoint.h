@@ -8,7 +8,7 @@ int main(int argc, char** argv) {
 	PeanutButter::Log::Initialize();
 	PB_CORE_WARNING("Initialized Log!");
 
-	auto app = PeanutButter::CreateApplication();
+	PeanutButter::Application* app = PeanutButter::CreateApplication();
 	app->Run();
 	delete app;
 	return 0;
