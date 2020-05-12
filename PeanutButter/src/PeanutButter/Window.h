@@ -5,8 +5,7 @@
 namespace PeanutButter {
 	class Window {
 	public:
-		Window(pb_uint16 WindowWidth, pb_uint16 WindowHeight, std::string WindowTitle);
-		~Window();
+		virtual ~Window() {}
 
 	protected:
 		pb_uint16 m_WindowWidth;
@@ -18,5 +17,9 @@ namespace PeanutButter {
 		inline int GetWindowHeight() const { return m_WindowHeight; }
 		inline std::string GetWindowTitle() const { return m_WindowTitle; }
 		virtual void* GetPlatformSpecificWindow() const = 0;
+		virtual void Destroy() = 0;
+
+		// Cannot be named "CreateWindow" because it's a Windows specific function name
+		static Window* Create(int WindowWidth, int WindowHeight, std::string WindowTitle);
 	};
 }

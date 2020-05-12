@@ -96,5 +96,6 @@
     <ClCompile Include="src\PeanutButter\Utils\Map.cpp" />
     <ClCompile Include="src\PeanutButter\Physics\Collision.cpp" />
     <ClCompile Include="src\PeanutButter\Utils\FontManager.cpp" />
+    <ClCompile Include="src\Platforms\SDL2\SDL2Window.cpp" />
   </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@ namespace PeanutButter {
 
 	class AssetManager;
 	class EntityManager;
+	class Window;
 
 	class PB_API Application {
 	public:
@@ -18,7 +19,7 @@ namespace PeanutButter {
 
 		static bool s_bSDL2Initialized;
 		static SDL_Renderer* s_Renderer;
-		static SDL_Window* s_Window;
+		static Window* s_Window;
 		static SDL_Event ApplicationEvent;
 		static AssetManager* s_AssetManager;
 		static EntityManager* s_EManager;

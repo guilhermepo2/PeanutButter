@@ -4,6 +4,7 @@
 #include "PeanutButter/Utils/AssetManager.h"
 #include "PeanutBUtter/Entity/Component/Sprite.h"
 #include "PeanutButter/Math/Math.h"
+#include "PeanutButter/Window.h"
 
 const unsigned int FPS = 60;
 const unsigned int FRAME_TARGET_TIME = 1000 / FPS;
@@ -13,7 +14,7 @@ namespace PeanutButter {
 	EntityManager* Application::s_EManager = new EntityManager();
 	bool Application::s_bSDL2Initialized = false;
 	SDL_Renderer* Application::s_Renderer = nullptr;
-	SDL_Window* Application::s_Window = nullptr;
+	Window* Application::s_Window = nullptr;
 	SDL_Event Application::ApplicationEvent;
 	AssetManager* Application::s_AssetManager = new AssetManager(s_EManager);
 	SDL_Rect Application::s_Camera = { 0, 0, 640, 360};
@@ -33,14 +34,10 @@ namespace PeanutButter {
 		int TTFSuccess = TTF_Init();
 		PB_CORE_ASSERT(!TTFSuccess, "Could Not Initialize TTF!");
 		
-		// TODO: Substitute here for the Window Abstraction!!
-		s_Window = SDL_CreateWindow("Peanut Butter Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 360, 0);
-		// ---------------------------------------------------
+		s_Window = Window::Create(640, 360, "Peanut Butter Engine");
 
-		PB_CORE_ASSERT(s_Window, "Could not create SDL2 Window!");
-		PB_CORE_INFO("Created SDL2 Window!");
-
-		s_Renderer = SDL_CreateRenderer(s_Window, -1, 0);
+		// TODO: Well, it's having SDL_Window* references here...
+		s_Renderer = SDL_CreateRenderer(static_cast<SDL_Window*>(s_Window->GetPlatformSpecificWindow()), -1, 0);
 		PB_CORE_ASSERT(s_Renderer, "Could not Create SDL Renderer!");
 		PB_CORE_INFO("Created SDL2 Renderer!");
 
@@ -73,7 +70,7 @@ namespace PeanutButter {
 		// Cleaning up
 		PB_CORE_INFO("Cleaning up app");
 		SDL_DestroyRenderer(s_Renderer);
-		SDL_DestroyWindow(s_Window);
+		delete s_Window;
 		SDL_Quit();
 	}
 
@@ -105,8 +102,8 @@ namespace PeanutButter {
 		}
 
 		// TODO: Remove magic numbers from here
-		s_Camera.x = m_pTransformToFollow->Position->x -320;
-		s_Camera.y = m_pTransformToFollow->Position->y - 180;
+		s_Camera.x = m_pTransformToFollow->Position->x - (s_Window->GetWindowWidth() / 2);
+		s_Camera.y = m_pTransformToFollow->Position->y - (s_Window->GetWindowHeight() / 2);
 
 		// Clamping camera values
 		s_Camera.x = s_Camera.x < 0 ? 0 : s_Camera.x;

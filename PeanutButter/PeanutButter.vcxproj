@@ -189,6 +189,7 @@
     <ClCompile Include="src\PeanutButter\Utils\TextureManager.cpp" />
     <ClCompile Include="src\pbpch.cpp" />
     <ClCompile Include="src\Platforms\SDL2\SDL2Input.cpp" />
+    <ClCompile Include="src\Platforms\SDL2\SDL2Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
