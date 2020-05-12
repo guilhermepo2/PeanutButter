@@ -69,6 +69,8 @@
     <ClInclude Include="src\PeanutButter\Entity\Component\Collider2D.h" />
     <ClInclude Include="src\PeanutButter\Utils\FontManager.h" />
     <ClInclude Include="src\PeanutButter\Entity\Component\UIText.h" />
+    <ClInclude Include="src\PeanutButter\Window.h" />
+    <ClInclude Include="src\Platforms\SDL2\SDL2Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">

@@ -32,8 +32,11 @@ namespace PeanutButter {
 
 		int TTFSuccess = TTF_Init();
 		PB_CORE_ASSERT(!TTFSuccess, "Could Not Initialize TTF!");
-
+		
+		// TODO: Substitute here for the Window Abstraction!!
 		s_Window = SDL_CreateWindow("Peanut Butter Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 360, 0);
+		// ---------------------------------------------------
+
 		PB_CORE_ASSERT(s_Window, "Could not create SDL2 Window!");
 		PB_CORE_INFO("Created SDL2 Window!");
 

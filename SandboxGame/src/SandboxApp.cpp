@@ -12,7 +12,6 @@ public:
 		// Loading Sprites into the asset mananager
 		Application::s_AssetManager->AddTexture(std::string("tank-image"), std::string("assets/images/tank-big-right.png"));
 		Application::s_AssetManager->AddTexture(std::string("chopper-image"), std::string("assets/images/chopper-spritesheet.png"));
-		Application::s_AssetManager->AddTexture(std::string("hero-character"), std::string("assets/chara_hero.png"));
 		Application::s_AssetManager->AddTexture(std::string("jungle-tilemap"), std::string("assets/tilemaps/jungle.png"));
 		Application::s_AssetManager->AddFont(std::string("charriot-font"), std::string("assets/fonts/charriot.ttf"), 14);
 
@@ -36,6 +35,7 @@ public:
 		Entity& Label(Application::s_EManager->AddEntity(std::string("LevelName"), ELayerType::ELT_UILayer));
 		Label.AddComponentOfType<UIText>(Vector2(10.0, 10.0), std::string("First Level"), std::string("charriot-font"), PB_COLOR(255, 255, 255, 255) );
 
+		// Setting transform for the camera to follow
 		Application::SetTransformToFollow(Hero.GetComponentOfType<Transform>());
 	}
 };

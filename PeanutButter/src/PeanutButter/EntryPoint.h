@@ -6,7 +6,7 @@ extern PeanutButter::Application* PeanutButter::CreateApplication();
 
 int main(int argc, char** argv) {
 	PeanutButter::Log::Initialize();
-	PB_CORE_WARNING("Initialized Log!");
+	PB_CORE_WARNING("[ENTRY POINT] Initialized Log!");
 
 	PeanutButter::Application* app = PeanutButter::CreateApplication();
 	app->Run();

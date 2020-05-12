@@ -173,7 +173,9 @@
     <ClInclude Include="src\PeanutButter\Utils\Map.h" />
     <ClInclude Include="src\PeanutButter\Utils\TextureManager.h" />
     <ClInclude Include="src\pbpch.h" />
+    <ClInclude Include="src\PeanutButter\Window.h" />
     <ClInclude Include="src\Platforms\SDL2\SDL2Input.h" />
+    <ClInclude Include="src\Platforms\SDL2\SDL2Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp" />
