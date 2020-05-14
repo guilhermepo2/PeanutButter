@@ -17,6 +17,9 @@ namespace PeanutButter {
 		inline static float GetMouseY() { return s_Instance->GetMouseY_Implementation(); }
 		inline static void Update() { s_Instance->Update_Implementation(); }
 
+		// TODO: The application will check this to see if the game should be exited
+		// Which is bad, ideally when the exit key is pressed, the input module should tell the application through a delegate, or a function pointer.
+		inline static bool PlayerPressedExitInput() { return s_Instance->PlayerPressedExitInput_Implementation(); }
 
 	/*
 	* The protected functions is what is actually implemented in the platforms. 
@@ -28,6 +31,7 @@ namespace PeanutButter {
 		virtual float GetMouseX_Implementation() = 0;
 		virtual float GetMouseY_Implementation() = 0;
 		virtual void Update_Implementation() = 0;
+		virtual bool PlayerPressedExitInput_Implementation() = 0;
 
 	private:
 		static Input* s_Instance;

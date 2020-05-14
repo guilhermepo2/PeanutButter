@@ -20,7 +20,6 @@ namespace PeanutButter {
 		static bool s_bSDL2Initialized;
 		static SDL_Renderer* s_Renderer;
 		static Window* s_Window;
-		static SDL_Event ApplicationEvent;
 		static AssetManager* s_AssetManager;
 		static EntityManager* s_EManager;
 		static SDL_Rect s_Camera;

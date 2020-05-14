@@ -11,5 +11,9 @@ namespace PeanutButter {
 		virtual float GetMouseX_Implementation() override;
 		virtual float GetMouseY_Implementation() override;
 		virtual void Update_Implementation() override;
+		virtual bool PlayerPressedExitInput_Implementation() override;
+
+		const Uint8* m_KeyboardState;
+		bool m_bPressedToExit = false;
 	};
 }

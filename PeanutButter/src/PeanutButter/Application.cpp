@@ -5,6 +5,7 @@
 #include "PeanutBUtter/Entity/Component/Sprite.h"
 #include "PeanutButter/Math/Math.h"
 #include "PeanutButter/Window.h"
+#include "PeanutButter/Input/Input.h"
 
 const unsigned int FPS = 60;
 const unsigned int FRAME_TARGET_TIME = 1000 / FPS;
@@ -15,7 +16,6 @@ namespace PeanutButter {
 	bool Application::s_bSDL2Initialized = false;
 	SDL_Renderer* Application::s_Renderer = nullptr;
 	Window* Application::s_Window = nullptr;
-	SDL_Event Application::ApplicationEvent;
 	AssetManager* Application::s_AssetManager = new AssetManager(s_EManager);
 	SDL_Rect Application::s_Camera = { 0, 0, 640, 360};
 
@@ -79,14 +79,10 @@ namespace PeanutButter {
 	}
 
 	void Application::ProcessInput() {
-		SDL_PollEvent(&ApplicationEvent);
+		Input::Update();
 
-		switch (ApplicationEvent.type) {
-		case SDL_QUIT:
+		if (Input::PlayerPressedExitInput()) {
 			m_bIsRunning = false;
-			break;
-		default:
-			break;
 		}
 	}
 

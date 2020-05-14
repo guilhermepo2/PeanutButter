@@ -61,7 +61,7 @@ namespace PeanutButter {
 						Collider2D* OtherCollider = OtherEntity->GetComponentOfType<Collider2D>();
 
 						if (Collision::CheckRectangleCollision(ThisCollider->Collider, OtherCollider->Collider)) {
-							PB_CORE_INFO("Collision between {0} and {1}", ThisEntity->Name, OtherEntity->Name);
+							// PB_CORE_INFO("Collision between {0} and {1}", ThisEntity->Name, OtherEntity->Name);
 							return ECL_Collision;
 						}
 					}
