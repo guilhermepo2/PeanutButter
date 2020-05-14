@@ -163,6 +163,7 @@
     <ClInclude Include="src\PeanutButter\Entity\EntityManager.h" />
     <ClInclude Include="src\PeanutButter\EntryPoint.h" />
     <ClInclude Include="src\PeanutButter\Input\Input.h" />
+    <ClInclude Include="src\PeanutButter\Input\KeyboardInput.h" />
     <ClInclude Include="src\PeanutButter\Log.h" />
     <ClInclude Include="src\PeanutButter\Math\Math.h" />
     <ClInclude Include="src\PeanutButter\Math\Vector2.h" />

@@ -22,7 +22,7 @@ public:
 		Entity& Hero(Application::s_EManager->AddEntity(std::string("Hero Chopper"), ELayerType::ELT_PlayerLayer));
 		Hero.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(1, 1));
 		Hero.AddComponentOfType<Sprite>(std::string("chopper-image"), Vector2(32.0, 32.0), 2, 90, true);
-		Hero.AddComponentOfType<KeyboardControl>(std::string("up"), std::string("right"), std::string("down"), std::string("left"));
+		Hero.AddComponentOfType<KeyboardControl>();
 		Hero.AddComponentOfType<Collider2D>(std::string("Hero Chopper"), Vector2(0, 0), Vector2(32, 32));
 
 		// Creating a random enemy out there...

@@ -8,7 +8,7 @@ namespace PeanutButter {
 	Input* Input::s_Instance = new SDL2Input();
 
 	// TODO: In Parameter should be a "SDL_Scancode"
-	bool SDL2Input::IsKeyPressed_Implementation(int KeyCode) {
+	bool SDL2Input::IsKeyPressed_Implementation(PB_Keycode KeyCode) {
 		if (m_KeyboardState != nullptr) {
 			if (m_KeyboardState[KeyCode] == 1) {
 				return true;
