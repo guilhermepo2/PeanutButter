@@ -18,8 +18,11 @@ namespace PeanutButter {
 		const Uint8* m_KeyboardState;
 		bool m_bPressedToExit = false;
 		std::vector<bool> m_MouseButtons;
+		float m_MousePositionX;
+		float m_MousePositionY;
 
 	private:
 		void OnMouseButtonChanged(const SDL_Event& Event, bool Pressed);
+		void OnMouseMoved(const SDL_Event& Event);
 	};
 }

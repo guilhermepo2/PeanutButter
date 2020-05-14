@@ -29,7 +29,7 @@ namespace PeanutButter {
 	}
 
 	std::pair<float, float> SDL2Input::GetMousePosition_Implementation() {
-		return std::pair<float, float>(0.0f, 0.0f);
+		return std::pair<float, float>(m_MousePositionX, m_MousePositionY);
 	}
 
 	float SDL2Input::GetMouseX_Implementation() {
@@ -61,6 +61,7 @@ namespace PeanutButter {
 				OnMouseButtonChanged(FrameEvent, false);
 				break;
 			case SDL_MOUSEMOTION:
+				OnMouseMoved(FrameEvent);
 				break;
 			}
 		}
@@ -80,5 +81,10 @@ namespace PeanutButter {
 		else if (Event.button.button == SDL_BUTTON_RIGHT) {
 			m_MouseButtons[PB_MOUSECODE_RIGHT] = Pressed;
 		}
+	}
+
+	void SDL2Input::OnMouseMoved(const SDL_Event& Event) {
+		m_MousePositionX = Event.motion.x;
+		m_MousePositionY = Event.motion.y;
 	}
 }
