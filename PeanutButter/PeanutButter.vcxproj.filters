@@ -72,6 +72,7 @@
     <ClInclude Include="src\PeanutButter\Window.h" />
     <ClInclude Include="src\Platforms\SDL2\SDL2Window.h" />
     <ClInclude Include="src\PeanutButter\Input\KeyboardInput.h" />
+    <ClInclude Include="src\PeanutButter\Input\MouseInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">

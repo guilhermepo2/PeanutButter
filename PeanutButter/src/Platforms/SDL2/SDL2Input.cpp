@@ -7,6 +7,12 @@ namespace PeanutButter {
 
 	Input* Input::s_Instance = new SDL2Input();
 
+	SDL2Input::SDL2Input() {
+		for (int i = 0; i < PB_MOUSE_BUTTON_AMOUNT; i++) {
+			m_MouseButtons.push_back(false);
+		}
+	}
+
 	// TODO: In Parameter should be a "SDL_Scancode"
 	bool SDL2Input::IsKeyPressed_Implementation(PB_Keycode KeyCode) {
 		if (m_KeyboardState != nullptr) {
@@ -18,9 +24,8 @@ namespace PeanutButter {
 		return false;
 	}
 
-	bool SDL2Input::IsMouseButtonPressed_Implementation(int Button) {
-		// TODO
-		return false;
+	bool SDL2Input::IsMouseButtonPressed_Implementation(PB_Mousecode Button) {
+		return m_MouseButtons[Button];
 	}
 
 	std::pair<float, float> SDL2Input::GetMousePosition_Implementation() {
@@ -50,8 +55,10 @@ namespace PeanutButter {
 				m_bPressedToExit = true;
 				break;
 			case SDL_MOUSEBUTTONDOWN:
+				OnMouseButtonChanged(FrameEvent, true);
 				break;
 			case SDL_MOUSEBUTTONUP:
+				OnMouseButtonChanged(FrameEvent, false);
 				break;
 			case SDL_MOUSEMOTION:
 				break;
@@ -61,5 +68,17 @@ namespace PeanutButter {
 
 	bool SDL2Input::PlayerPressedExitInput_Implementation() {
 		return m_bPressedToExit;
+	}
+
+	void SDL2Input::OnMouseButtonChanged(const SDL_Event& Event, bool Pressed) {
+		if (Event.button.button == SDL_BUTTON_LEFT) {
+			m_MouseButtons[PB_MOUSECODE_LEFT] = Pressed;
+		}
+		else if (Event.button.button == SDL_BUTTON_MIDDLE) {
+			m_MouseButtons[PB_MOUSECODE_MIDDLE] = Pressed;
+		}
+		else if (Event.button.button == SDL_BUTTON_RIGHT) {
+			m_MouseButtons[PB_MOUSECODE_RIGHT] = Pressed;
+		}
 	}
 }
