@@ -4,17 +4,26 @@ using namespace PeanutButter;
 class Sandbox : public PeanutButter::Application {
 public:
 	Sandbox() {}
+	Sandbox(const int& Width, const int& Height, const std::string Title) : Application(Width, Height, Title) {}
 	~Sandbox() override {}
 
 	void Start() override {
 		PB_INFO("Starting Client Application");
 
-		// Loading Sprites into the asset mananager
-		Application::s_AssetManager->AddTexture(std::string("tank-image"), std::string("assets/images/tank-big-right.png"));
-		Application::s_AssetManager->AddTexture(std::string("chopper-image"), std::string("assets/images/chopper-spritesheet.png"));
-		Application::s_AssetManager->AddTexture(std::string("jungle-tilemap"), std::string("assets/tilemaps/jungle.png"));
+		// Loading Pong Assets
+		Application::s_AssetManager->AddTexture(std::string("pong-ball"), std::string("assets/pong/fancy-ball.png"));
+		Application::s_AssetManager->AddTexture(std::string("pong-court"), std::string("assets/pong/fancy-court.png"));
+		Application::s_AssetManager->AddTexture(std::string("pong-paddle-grey"), std::string("assets/pong/fancy-paddle-grey.png"));
+		Application::s_AssetManager->AddTexture(std::string("pong-paddle-green"), std::string("assets/pong/fancy-paddle-green.png"));
+		Application::s_AssetManager->AddTexture(std::string("pong-paddle-blue"), std::string("assets/pong/fancy-paddle-blue.png"));
 		Application::s_AssetManager->AddFont(std::string("charriot-font"), std::string("assets/fonts/charriot.ttf"), 14);
 
+		// Court Entity
+		Entity& CourtBackground(Application::s_EManager->AddEntity(std::string("court-background"), ELayerType::ELT_TilemapLayer));
+		CourtBackground.AddComponentOfType<Transform>(Vector2(0.0f, 0.0f), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
+		CourtBackground.AddComponentOfType<Sprite>(std::string("pong-court"), Vector2(800.0f, 600.0f));
+			
+		/*
 		Map* myMap = new Map(std::string("jungle-tilemap"), 2, 32);
 		myMap->LoadMap(std::string("assets/tilemaps/jungle.map"), 25, 20);
 
@@ -37,9 +46,10 @@ public:
 
 		// Setting transform for the camera to follow
 		Application::SetTransformToFollow(Hero.GetComponentOfType<Transform>());
+		*/
 	}
 };
 
 PeanutButter::Application* PeanutButter::CreateApplication() {
-	return new Sandbox();
+	return new Sandbox(800, 600, "P(eanutButter)ONG");
 }

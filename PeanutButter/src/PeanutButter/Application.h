@@ -14,6 +14,7 @@ namespace PeanutButter {
 	class PB_API Application {
 	public:
 		Application();
+		Application(const int& Width, const int& Height, const std::string Title);
 		virtual ~Application() {}
 		void Run();
 
@@ -34,7 +35,7 @@ namespace PeanutButter {
 		void CheckCollision();
 
 	private:
-		void Initialize();
+		void Initialize(const int& GameWidth, const int& GameHeight, const std::string& GameTitle);
 		bool m_bIsRunning;
 		float m_TicksLastFrame;
 

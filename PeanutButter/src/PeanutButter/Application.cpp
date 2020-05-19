@@ -20,10 +20,14 @@ namespace PeanutButter {
 	SDL_Rect Application::s_Camera = { 0, 0, 640, 360};
 
 	Application::Application() : m_TicksLastFrame(0.0f) {
-		Initialize();
+		Initialize(640, 360, "Peanut Butter Engine");
 	}
 
-	void Application::Initialize() {
+	Application::Application(const int& Width, const int& Height, const std::string Title) : m_TicksLastFrame(0.0f) {
+		Initialize(Width, Height, Title);
+	}
+
+	void Application::Initialize(const int& GameWidth, const int& GameHeight, const std::string& GameTitle) {
 		if (!s_bSDL2Initialized) {
 			int Sucess = SDL_Init(SDL_INIT_EVERYTHING);
 			PB_CORE_ASSERT(Success, "Could not initialize SDL2");
@@ -34,7 +38,8 @@ namespace PeanutButter {
 		int TTFSuccess = TTF_Init();
 		PB_CORE_ASSERT(!TTFSuccess, "Could Not Initialize TTF!");
 		
-		s_Window = Window::Create(640, 360, "Peanut Butter Engine");
+		s_Window = Window::Create(GameWidth, GameHeight, GameTitle);
+		s_Camera = { 0, 0, GameWidth, GameHeight };
 
 		// TODO: Well, it's having SDL_Window* references here...
 		s_Renderer = SDL_CreateRenderer(static_cast<SDL_Window*>(s_Window->GetPlatformSpecificWindow()), -1, 0);
