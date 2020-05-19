@@ -1,6 +1,37 @@
 #include <PeanutButter.h>
 using namespace PeanutButter;
 
+class PaddleMovementComponent : public PeanutButter::Component {
+public:
+	float Velocity;
+
+	PaddleMovementComponent() : Velocity(0.0f) {}
+	PaddleMovementComponent(float InVelocty) : Velocity(InVelocty) {}
+private:
+	Transform* transform;
+
+public:
+	void Initialize() override {
+		if (owner->HasComponentOfType<Transform>()) {
+			transform = owner->GetComponentOfType<Transform>();
+		} else {
+			PB_WARNING("Trying to initialize Paddle Movement Component but Entity doesn't have a Transform!");
+		}
+	}
+
+	void Update(float DeltaTime) override {
+		if (PeanutButter::Input::IsKeyPressed(PB_KEYCODE_W)) {
+			transform->Position->y -= Velocity * DeltaTime;
+		}
+
+		if (PeanutButter::Input::IsKeyPressed(PB_KEYCODE_S)) {
+			transform->Position->y += Velocity * DeltaTime;
+		}
+	}
+
+	void Render() override { }
+};
+
 class Sandbox : public PeanutButter::Application {
 public:
 	Sandbox() {}
@@ -22,34 +53,21 @@ public:
 		Entity& CourtBackground(Application::s_EManager->AddEntity(std::string("court-background"), ELayerType::ELT_TilemapLayer));
 		CourtBackground.AddComponentOfType<Transform>(Vector2(0.0f, 0.0f), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
 		CourtBackground.AddComponentOfType<Sprite>(std::string("pong-court"), Vector2(800.0f, 600.0f));
-			
-		/*
-		Map* myMap = new Map(std::string("jungle-tilemap"), 2, 32);
-		myMap->LoadMap(std::string("assets/tilemaps/jungle.map"), 25, 20);
 
-		// Creating Chopper Entity
-		Entity& Hero(Application::s_EManager->AddEntity(std::string("Hero Chopper"), ELayerType::ELT_PlayerLayer));
-		Hero.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(1, 1));
-		Hero.AddComponentOfType<Sprite>(std::string("chopper-image"), Vector2(32.0, 32.0), 2, 90, true);
-		Hero.AddComponentOfType<KeyboardControl>();
-		Hero.AddComponentOfType<Collider2D>(std::string("Hero Chopper"), Vector2(0, 0), Vector2(32, 32));
+		// Ball
+		Entity& BallEntity(Application::s_EManager->AddEntity(std::string("ball"), ELayerType::ELT_PlayerLayer));
+		// TODO: Consider pivots when positioning the ball? Would have to change the Sprite Component
+		BallEntity.AddComponentOfType<Transform>(Vector2(384.0f, 284.0f), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
+		BallEntity.AddComponentOfType<Sprite>(std::string("pong-ball"), Vector2(32.0f, 32.0f));
 
-		// Creating a random enemy out there...
-		Entity& Tank(Application::s_EManager->AddEntity(std::string("Enemy Tank"), ELayerType::ELT_EnemyLayer));
-		Tank.AddComponentOfType<Transform>(Vector2(100.0, 100.0), Vector2(0, 0), Vector2(1, 1));
-		Tank.AddComponentOfType<Sprite>(std::string("tank-image"), Vector2(32.0, 32.0));
-		Tank.AddComponentOfType<Collider2D>(std::string("Enemy"), Vector2(0, 0), Vector2(32, 32));
-
-		// Adding font entity...
-		Entity& Label(Application::s_EManager->AddEntity(std::string("LevelName"), ELayerType::ELT_UILayer));
-		Label.AddComponentOfType<UIText>(Vector2(10.0, 10.0), std::string("First Level"), std::string("charriot-font"), PB_COLOR(255, 255, 255, 255) );
-
-		// Setting transform for the camera to follow
-		Application::SetTransformToFollow(Hero.GetComponentOfType<Transform>());
-		*/
+		// Left Paddle
+		Entity& LeftPaddle(Application::s_EManager->AddEntity(std::string("left-paddle"), ELayerType::ELT_PlayerLayer));
+		LeftPaddle.AddComponentOfType<Transform>(Vector2(50.0f, (300.0f - 64.0f)), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
+		LeftPaddle.AddComponentOfType<Sprite>(std::string("pong-paddle-blue"), Vector2(32.0f, 128.0f));
+		LeftPaddle.AddComponentOfType<PaddleMovementComponent>(150.0f);
 	}
 };
 
 PeanutButter::Application* PeanutButter::CreateApplication() {
-	return new Sandbox(800, 600, "P(eanutButter)ONG");
+	return new Sandbox(800, 600, "P(eanutButter)ONG");	
 }
