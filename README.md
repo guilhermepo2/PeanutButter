@@ -69,6 +69,7 @@ Maybe take a look at the issues, wiki, and everything else?
 #### Books, videos, etc...
 
 * **Game Engine Architecture** by Jason Gregory (duh)
+* **Game Programming in C++** by Sanjay Madhav
 * **Game Development with SDL** by Shaun Mitchell
 * [C++ Series](https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb) by TheCherno
 * [OpenGL Series](https://www.youtube.com/playlist?list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2) by TheCherno
