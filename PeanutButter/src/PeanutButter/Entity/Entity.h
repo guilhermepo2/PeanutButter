@@ -19,6 +19,7 @@ namespace PeanutButter {
 		std::map<const std::type_info*, Component*> m_ComponentTypeMap;
 
 	public:
+		void BeginPlay();
 		void Update(float DeltaTime);
 		void Render();
 		void Destroy();

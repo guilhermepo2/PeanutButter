@@ -7,6 +7,12 @@ namespace PeanutButter {
 		this->m_bIsActive = true;
 	}
 
+	void Entity::BeginPlay() {
+		for(Component* _Component : m_Components) {
+			_Component->BeginPlay();
+		}
+	}
+
 	void Entity::Update(float DeltaTime) {
 		for (Component* _Component : m_Components) {
 			_Component->Update(DeltaTime);

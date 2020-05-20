@@ -6,6 +6,12 @@
 #include "PeanutButter/Entity/Component/Collider2D.h"
 
 namespace PeanutButter {
+	void EntityManager::BeginPlay() {
+		for (Entity* _Entity : m_AllEntities) {
+			_Entity->BeginPlay();
+		}
+	}
+
 	void EntityManager::Update(float DeltaTime) {
 		for (Entity* _Entity : m_AllEntities) {
 			_Entity->Update(DeltaTime);

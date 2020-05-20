@@ -9,6 +9,7 @@ namespace PeanutButter {
 
 	class PB_API EntityManager {
 	public:
+		void BeginPlay();
 		void Update(float DeltaTime);
 		void Render();
 		void Clear();

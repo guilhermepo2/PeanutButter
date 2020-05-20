@@ -53,6 +53,7 @@ namespace PeanutButter {
 		PB_CORE_INFO("Running app!");
 		Start();
 
+		s_EManager->BeginPlay();
 		while (m_bIsRunning) {
 			// Calculating DeltaTime for the current frame
 			// TODO: Remove SDL2 dependent code from here
