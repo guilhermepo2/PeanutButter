@@ -1,4 +1,5 @@
 #include <PeanutButter.h>
+#include <functional>
 using namespace PeanutButter;
 
 class BallMovementComponent : public PeanutButter::Component {
@@ -13,8 +14,17 @@ private:
 
 public:
 	void Initialize() override {
+	}
+
+	void BeginPlay() override {
 		if (owner->HasComponentOfType<Transform>()) {
 			transform = owner->GetComponentOfType<Transform>();
+		}
+
+		if (owner->HasComponentOfType<Collider2D>()) {
+			// Bind Process Collision on Collider 2D
+			Collider2D* ColliderComponent = owner->GetComponentOfType<Collider2D>();
+			ColliderComponent->HandleCollision = std::bind(&BallMovementComponent::ProcessCollision, this, std::placeholders::_1);
 		}
 	}
 
@@ -34,6 +44,13 @@ public:
 	}
 
 	void Render() override {}
+
+	void ProcessCollision(PeanutButter::Collider2D* Other) {
+		PB_WARNING("BALL HANDLING COLLISION!");
+		if (Other->ColliderTag.compare("left-paddle") == 0 && BallVelocity.x < 0) {
+			BallVelocity.x *= -1;
+		}
+	}
 };
 
 class PaddleMovementComponent : public PeanutButter::Component {
@@ -46,10 +63,13 @@ private:
 	Transform* transform;
 
 public:
-	void Initialize() override {
+	void Initialize() override { }
+
+	void BeginPlay() override {
 		if (owner->HasComponentOfType<Transform>()) {
 			transform = owner->GetComponentOfType<Transform>();
-		} else {
+		}
+		else {
 			PB_WARNING("Trying to initialize Paddle Movement Component but Entity doesn't have a Transform!");
 		}
 	}
@@ -103,13 +123,15 @@ public:
 		// TODO: Consider pivots when positioning the ball? Would have to change the Sprite Component
 		BallEntity.AddComponentOfType<Transform>(Vector2(384.0f, 284.0f), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
 		BallEntity.AddComponentOfType<Sprite>(std::string("pong-ball"), Vector2(32.0f, 32.0f));
+		BallEntity.AddComponentOfType<Collider2D>("ball", Vector2(384.0f, 284.0f), Vector2(32.0f, 32.0f));
 		BallEntity.AddComponentOfType<BallMovementComponent>(Vector2(500.0f, 750.0f));
 
 		// Left Paddle
 		Entity& LeftPaddle(Application::s_EManager->AddEntity(std::string("left-paddle"), ELayerType::ELT_PlayerLayer));
 		LeftPaddle.AddComponentOfType<Transform>(Vector2(50.0f, (300.0f - 64.0f)), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
 		LeftPaddle.AddComponentOfType<Sprite>(std::string("pong-paddle-blue"), Vector2(32.0f, 128.0f));
-		LeftPaddle.AddComponentOfType<PaddleMovementComponent>(150.0f);
+		LeftPaddle.AddComponentOfType<Collider2D>("left-paddle", Vector2(50.0f, (300.0f - 64.0f)), Vector2(32.0f, 128.0f));
+		LeftPaddle.AddComponentOfType<PaddleMovementComponent>(500.0f);
 	}
 };
 
