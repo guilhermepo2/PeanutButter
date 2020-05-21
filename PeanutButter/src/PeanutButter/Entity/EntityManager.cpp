@@ -55,6 +55,7 @@ namespace PeanutButter {
 	// TODO: This is bad - it checks all entities for one collision
 	// This ideally should be done on the Collider Component, each collider should check if they collided with something and take from there...
 	ECollisionType EntityManager::CheckCollisionOnAllEntities() const {
+		bool bCollisionHappened = false;
 		for (Entity* ThisEntity : m_AllEntities) {
 			if (ThisEntity->HasComponentOfType<Collider2D>()) {
 				Collider2D* ThisCollider = ThisEntity->GetComponentOfType<Collider2D>();
@@ -68,11 +69,19 @@ namespace PeanutButter {
 
 						if (Collision::CheckRectangleCollision(ThisCollider->Collider, OtherCollider->Collider)) {
 							// PB_CORE_INFO("Collision between {0} and {1}", ThisEntity->Name, OtherEntity->Name);
-							return ECL_Collision;
+							if (ThisCollider->HandleCollision) {
+								ThisCollider->HandleCollision(OtherCollider);
+							}
+
+							bCollisionHappened = true;
 						}
 					}
 				}
 			}
+		}
+
+		if (bCollisionHappened) {
+			return ECL_Collision;
 		}
 
 		return ECL_NoCollision;

@@ -14,6 +14,9 @@ namespace PeanutButter {
 		Transform* transform;
 		Vector2 ColliderSize;
 
+		/* Function Delegate to Handle Collision */
+		std::function<void(Collider2D*)> HandleCollision;
+
 		Collider2D(std::string ColliderTag, Vector2 Position, Vector2 Size) {
 			this->ColliderTag = ColliderTag;
 			this->Collider = { static_cast<int>(Position.x), static_cast<int>(Position.y), static_cast<int>(Size.x), static_cast<int>(Size.y) };
