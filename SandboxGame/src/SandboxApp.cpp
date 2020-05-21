@@ -46,7 +46,7 @@ public:
 	void Render() override {}
 
 	void ProcessCollision(PeanutButter::Collider2D* Other) {
-		PB_WARNING("BALL HANDLING COLLISION!");
+		// PB_WARNING("BALL HANDLING COLLISION!");
 		if (Other->ColliderTag.compare("left-paddle") == 0 && BallVelocity.x < 0) {
 			BallVelocity.x *= -1;
 		}

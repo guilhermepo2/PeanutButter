@@ -3,6 +3,7 @@
 #include "PeanutButter/Application.h"
 #include "PeanutButter/Entity/Component/Component.h"
 #include "PeanutButter/Entity/Component/Transform.h"
+#include "PeanutButter/Physics/Collision.h"
 
 namespace PeanutButter {
 	class PB_API Collider2D : public Component {
@@ -47,6 +48,20 @@ namespace PeanutButter {
 
 			DestinationRectangle.x = Collider.x - Application::s_Camera.x;
 			DestinationRectangle.y = Collider.y - Application::s_Camera.y;
+			
+			// Checking if we collided with something!
+			for (Entity* _entity : Application::s_EManager->GetAllEntities()) {
+				if (_entity != this->owner && _entity->HasComponentOfType<Collider2D>()) {
+					Collider2D* OtherCollider = _entity->GetComponentOfType<Collider2D>();
+					if (Collision::CheckRectangleCollision(this->Collider, OtherCollider->Collider)) {
+						// PB_CORE_INFO("Collider2D detected collision between {0} and {1}", owner->Name, _entity->Name);
+						
+						if (this->HandleCollision) {
+							HandleCollision(OtherCollider);
+						}
+					}
+				}
+			}
 		}
 
 		void Render() override {}
