@@ -13,7 +13,9 @@ namespace PeanutButter {
 
 	class PB_API Application {
 	public:
+		/** Default constructor, assumes a width, height and window title. */
 		Application();
+
 		Application(const int& Width, const int& Height, const std::string Title);
 		virtual ~Application() {}
 		void Run();
