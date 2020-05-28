@@ -129,7 +129,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:ac73b3f497ac763b7a99517faf6f11cce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_peanut_butter_1_1_transform.html">Transform</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peanut_butter_1_1_application.html#ac73b3f497ac763b7a99517faf6f11cce">m_pTransformToFollow</a> = nullptr</td></tr>
 <tr class="separator:ac73b3f497ac763b7a99517faf6f11cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_peanut_butter_1_1_application.html">Application</a> Class is the main class. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9c359d198fdda16487599938c95511ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9c359d198fdda16487599938c95511ce">&#9670;&nbsp;</a></span>Application() <span class="overload">[1/2]</span></h2>
 
@@ -179,6 +181,14 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a class="el" href="class_peanut_butter_1_1_application.html">Application</a> constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Width</td><td>- window width </td></tr>
+    <tr><td class="paramname">Height</td><td>- window height </td></tr>
+    <tr><td class="paramname">Title</td><td>- window title </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -230,6 +240,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>(DEPRECATED) Check for collisions on all entities </p>
 
 </div>
 </div>
@@ -255,6 +266,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Called during update, in case m_pTransformToFollow is set to a value, will update camera position to frame the follow target in the screen. </p>
 
 </div>
 </div>
@@ -280,6 +292,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Ticks the <a class="el" href="class_peanut_butter_1_1_input.html">Input</a> module, it's the first method on the game loop. </p>
 
 </div>
 </div>
@@ -305,6 +318,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Renders all the entities, it's the third and last method on the game loop </p>
 
 </div>
 </div>
@@ -322,6 +336,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Run function, called in the entry point. </p>
 
 </div>
 </div>
@@ -348,6 +363,12 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set transform that the camera should follow. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Transform</td><td><a class="el" href="class_peanut_butter_1_1_transform.html">Transform</a> to be followed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -373,6 +394,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Start function, can be overrided in the application, executed after engine initialization but before game loop starts. </p>
 
 </div>
 </div>
@@ -399,6 +421,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Updates all the entities given a DeltaTime, it's the second method on the game loop. </p>
 
 </div>
 </div>
@@ -422,6 +445,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Reference to the transform that is being followed by the camera </p>
 
 </div>
 </div>
@@ -444,6 +468,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Asset Manager Reference </p>
 
 </div>
 </div>
@@ -466,6 +491,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Holds whether or not SDL2 was initialized </p>
 
 </div>
 </div>
@@ -488,6 +514,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>SDL_Rect that determiens the game camera </p>
 
 </div>
 </div>
@@ -510,6 +537,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><a class="el" href="class_peanut_butter_1_1_entity.html">Entity</a> Manager Reference </p>
 
 </div>
 </div>
@@ -532,6 +560,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Reference to the Renderer </p>
 
 </div>
 </div>
@@ -554,6 +583,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Reference to the abstracted window class created in the Peanut Butter Engine </p>
 
 </div>
 </div>
