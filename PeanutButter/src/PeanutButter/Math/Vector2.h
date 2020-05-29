@@ -2,6 +2,11 @@
 #include <math.h>
 #include <string>
 
+// TODO: For some reason I need this here... why?
+#ifndef PB_API
+#define PB_API
+#endif
+
 namespace PeanutButter {
 	class PB_API Vector2 {
 	public:

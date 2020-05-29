@@ -11,9 +11,16 @@ public:
 
 private:
 	Transform* transform;
+	// Creating Paddle Particle Effects
+	ParticleProps MyParticle;
+	ParticleSystem MyParticleSystem;
 
 public:
 	void Initialize() override {
+		MyParticle.LifeTime = 0.5f;
+		MyParticle.SizeBegin = 8.0f;
+		MyParticle.SizeEnd = 0.0f; // TODO: Size is not updating
+		MyParticle.Color = PB_COLOR_WHITE;
 	}
 
 	void BeginPlay() override {
@@ -41,11 +48,22 @@ public:
 			(transform->Position->y >= (600 - 16) && BallVelocity.y > 0)) {
 			BallVelocity.y *= -1.0f;
 		}
+
+		MyParticleSystem.Update(DeltaTime);
 	}
 
-	void Render() override {}
+	void Render() override {
+		MyParticleSystem.Render();
+	}
 
 	void ProcessCollision(PeanutButter::Collider2D* Other) {
+		// Instantiating Particles
+		for (int i = 0; i < 15; i++) {
+			MyParticle.Position = { transform->Position->x, transform->Position->y + PeanutButter::Random::Float() * 8.0f * 2.0f };
+			MyParticle.Velocity = { PeanutButter::Random::Float() * 45.0f, PeanutButter::Random::Float() * 45.0f };
+			Application::s_ParticleSystem.Emit(MyParticle);
+		}
+
 		// PB_WARNING("BALL HANDLING COLLISION!");
 		if (Other->ColliderTag.compare("left-paddle") == 0 && BallVelocity.x < 0) {
 			BallVelocity.x *= -1;
@@ -131,7 +149,7 @@ public:
 		LeftPaddle.AddComponentOfType<Transform>(Vector2(50.0f, (300.0f - 64.0f)), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
 		LeftPaddle.AddComponentOfType<Sprite>(std::string("pong-paddle-blue"), Vector2(32.0f, 128.0f));
 		LeftPaddle.AddComponentOfType<Collider2D>("left-paddle", Vector2(50.0f, (300.0f - 64.0f)), Vector2(32.0f, 128.0f));
-		LeftPaddle.AddComponentOfType<PaddleMovementComponent>(500.0f);
+		LeftPaddle.AddComponentOfType<PaddleMovementComponent>(750.0f);
 	}
 };
 

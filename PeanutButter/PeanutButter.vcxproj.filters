@@ -73,6 +73,8 @@
     <ClInclude Include="src\Platforms\SDL2\SDL2Window.h" />
     <ClInclude Include="src\PeanutButter\Input\KeyboardInput.h" />
     <ClInclude Include="src\PeanutButter\Input\MouseInput.h" />
+    <ClInclude Include="src\PeanutButter\Particles\ParticleSystem.h" />
+    <ClInclude Include="src\PeanutButter\Utils\Random.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PeanutButter\Application.cpp">
@@ -99,5 +101,7 @@
     <ClCompile Include="src\PeanutButter\Physics\Collision.cpp" />
     <ClCompile Include="src\PeanutButter\Utils\FontManager.cpp" />
     <ClCompile Include="src\Platforms\SDL2\SDL2Window.cpp" />
+    <ClCompile Include="src\PeanutButter\Utils\Random.cpp" />
+    <ClCompile Include="src\PeanutButter\Particles\ParticleSystem.cpp" />
   </ItemGroup>
 </Project>

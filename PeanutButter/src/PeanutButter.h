@@ -25,6 +25,7 @@
 
 // PHYSICS ---------------------------------------
 #include "PeanutButter/Physics/Collision.h"
+#include "PeanutButter/Particles/ParticleSystem.h"
 // -----------------------------------------------
 
 // UI --------------------------------------------
@@ -37,6 +38,7 @@
 #include "PeanutButter/Utils/AssetManager.h"
 #include "PeanutButter/Utils/FontManager.h"
 #include "PeanutButter/Utils/TextureManager.h"
+#include "PeanutButter/Utils/Random.h"
 // -----------------------------------------------
 
 // Entry Point ---------------------

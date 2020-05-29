@@ -12,7 +12,13 @@ namespace PeanutButter {
 		}
 
 		static float Float() {
-			return (float)s_Distribution(s_RandomEngine) / (float)std::numeric_limits<uint32_t>::max();
+			float Value = (float)s_Distribution(s_RandomEngine) / (float)UINT32_MAX;
+			if (s_Distribution(s_RandomEngine) % 2 == 0) {
+				return -Value;
+			}
+			else {
+				return Value;
+			}
 		}
 
 		static int Int() {

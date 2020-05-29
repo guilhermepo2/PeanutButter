@@ -18,6 +18,7 @@ namespace PeanutButter {
 	Window* Application::s_Window = nullptr;
 	AssetManager* Application::s_AssetManager = new AssetManager(s_EManager);
 	SDL_Rect Application::s_Camera = { 0, 0, 640, 360};
+	ParticleSystem Application::s_ParticleSystem;
 
 	Application::Application() : m_TicksLastFrame(0.0f) {
 		Initialize(640, 360, "Peanut Butter Engine");
@@ -94,6 +95,7 @@ namespace PeanutButter {
 
 	void Application::Update(float DeltaTime) {
 		s_EManager->Update(DeltaTime);
+		s_ParticleSystem.Update(DeltaTime);
 		HandleCameraMovement();
 		CheckCollision();
 	}
@@ -125,6 +127,11 @@ namespace PeanutButter {
 		if (s_EManager->HasEntities()) {
 			s_EManager->Render();
 		}
+
+		s_ParticleSystem.Render();
+
+		// Resetting the Render Draw Color because the Particle System messes with it.
+		SDL_SetRenderDrawColor(s_Renderer, 21, 21, 21, 255);
 
 		// Swap front and back buffers to render
 		SDL_RenderPresent(s_Renderer);

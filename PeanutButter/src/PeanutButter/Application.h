@@ -3,7 +3,9 @@
 #include "Core.h"
 #include <SDL.h>
 #undef main // dumb SDL stuff
+#include "PeanutButter/Log.h"
 #include "PeanutButter/Entity/Component/Transform.h"
+#include "PeanutButter/Particles/ParticleSystem.h"
 
 namespace PeanutButter {
 
@@ -46,8 +48,11 @@ namespace PeanutButter {
 		/** Entity Manager Reference */
 		static EntityManager* s_EManager;
 
-		/** SDL_Rect that determiens the game camera */
+		/** SDL_Rect that determines the game camera */
 		static SDL_Rect s_Camera;
+
+		/** Particle System that is used on the application */
+		static ParticleSystem s_ParticleSystem;
 
 	protected:
 		/** Start function, can be overrided in the application, executed after engine initialization but before game loop starts. */
@@ -92,6 +97,12 @@ namespace PeanutButter {
 		* @param _Transform Transform to be followed.
 		*/
 		inline void SetTransformToFollow(Transform* _Transform) { m_pTransformToFollow = _Transform; }
+
+		/**
+		* Instantiate the given particle
+		* @param _Props Properties of the particle to be spawned
+		*/
+		inline void EmitParticle(const ParticleProps& _Props) { s_ParticleSystem.Emit(_Props); }
 	};
 
 	/** Defined in the client */
