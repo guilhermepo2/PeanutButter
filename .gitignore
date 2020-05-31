@@ -355,6 +355,11 @@ MigrationBackup/
 !thirdparty/bin/
 bin-int/
 
+# Third Party Dependencies
+!PeanutButter/thirdparty/SDL2-2.0.12/lib/x64/
+!PeanutButter/thirdparty/SDL2_ttf-2.0.15/lib/x64/
+!PeanutButter/thirdparty/SDL2_image-2.0.5/lib/x64/
+
 # Visual Studio files
 **.sln/
 **.vcxproj
