@@ -124,10 +124,12 @@ namespace PeanutButter {
 		SDL_SetRenderDrawColor(s_Renderer, 21, 21, 21, 255);
 		SDL_RenderClear(s_Renderer);
 
+		
 		if (s_EManager->HasEntities()) {
 			s_EManager->Render();
 		}
 
+		// TODO: Add Layers for Particles just like we have it for entities!
 		s_ParticleSystem.Render();
 
 		// Resetting the Render Draw Color because the Particle System messes with it.

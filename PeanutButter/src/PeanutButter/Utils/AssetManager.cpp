@@ -22,10 +22,20 @@ namespace PeanutButter {
 	}
 
 	SDL_Texture* AssetManager::GetTexture(std::string TextureID) {
+		if (m_Textures.count(TextureID) == 0) {
+			PB_CORE_ERROR("Couldn't find the texture: {0}", TextureID);
+			return nullptr;
+		}
+
 		return m_Textures[TextureID];
 	}
 
 	TTF_Font* AssetManager::GetFont(std::string FontID) {
+		if (m_Fonts.count(FontID) == 0) {
+			PB_CORE_ERROR("Couldn't find the font: {0}", FontID);
+			return nullptr;
+		}
+
 		return m_Fonts[FontID];
 	}
 }

@@ -17,6 +17,8 @@ namespace PeanutButter {
 	}
 
 	void FontManager::DrawFont(SDL_Texture* Texture, SDL_Rect Position) {
-		SDL_RenderCopy(Application::s_Renderer, Texture, nullptr, &Position);
+		if (Texture != nullptr) {
+			SDL_RenderCopy(Application::s_Renderer, Texture, nullptr, &Position);
+		}
 	}
 }
