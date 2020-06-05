@@ -41,6 +41,11 @@ const SDL_Color PB_COLOR_BLUE = { 0, 0, 255, 255 };
 #define PB_COLOR(...) SDL_Color { __VA_ARGS__ }
 // -------------------------------------------|
 
+// Utility Defines ---------------------------|
+#define PB_BIND_COLLISION(...) std::bind(__VA_ARGS__, this, std::placeholders::_1)
+// -------------------------------------------|
+
+
 #ifdef PB_PLATFORM_WINDOWS
 	#ifdef PB_BUILD_DYNAMIC
 		#ifdef PB_BUILD_DLL
