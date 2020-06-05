@@ -41,6 +41,10 @@ namespace PeanutButter {
 			SDL_QueryTexture(m_Texture, nullptr, nullptr, &m_Position.w, &m_Position.h);
 		}
 
+		void UpdateLabelText(std::string Text) {
+			SetLabelText(Text, this->FontFamily);
+		}
+
 		void Initialize() override {}
 		void Update(float DeltaTime) override {}
 
