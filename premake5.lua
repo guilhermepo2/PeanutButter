@@ -13,6 +13,7 @@ IncludeDir = {}
 IncludeDir["SDL2"] = "%{prj.name}/thirdparty/SDL2-2.0.12/include"
 IncludeDir["SDL2_Image"] = "%{prj.name}/thirdparty/SDL2_image-2.0.5/include"
 IncludeDir["SDL2_ttf"] = "%{prj.name}/thirdparty/SDL2_ttf-2.0.15/include"
+IncludeDir["LUA"] = "%{prj.name}/thirdparty/lua"
 
 project "PeanutButter"
 	location "PeanutButter"
@@ -39,7 +40,8 @@ project "PeanutButter"
 		"%{prj.name}/thirdparty/spdlog/include",
 		"%{IncludeDir.SDL2}",
 		"%{IncludeDir.SDL2_Image}",
-		"%{IncludeDir.SDL2_ttf}"
+		"%{IncludeDir.SDL2_ttf}",
+		"%{IncludeDir.LUA}"
 	}
 
 	links 
