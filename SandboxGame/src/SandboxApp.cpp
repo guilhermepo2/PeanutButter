@@ -108,10 +108,6 @@ public:
 class Sandbox : public PeanutButter::Application {
 public:
 	Sandbox() {}
-	Sandbox(const int& Width, const int& Height, const std::string Title) : Application(Width, Height, Title) {
-		m_GameWidth = Width;
-		m_GameHeight = Height;
-	}
 
 	~Sandbox() override {}
 
@@ -123,18 +119,91 @@ public:
 	void Start() override {
 		PB_INFO("Starting Client Application");
 
-		// Loading Pong Assets
-		Application::s_AssetManager->AddTexture(std::string("pong-ball"), std::string("assets/pong/fancy-ball.png"));
-		Application::s_AssetManager->AddTexture(std::string("pong-court"), std::string("assets/pong/fancy-court.png"));
-		Application::s_AssetManager->AddTexture(std::string("pong-paddle-grey"), std::string("assets/pong/fancy-paddle-grey.png"));
-		Application::s_AssetManager->AddTexture(std::string("pong-paddle-green"), std::string("assets/pong/fancy-paddle-green.png"));
-		Application::s_AssetManager->AddTexture(std::string("pong-paddle-blue"), std::string("assets/pong/fancy-paddle-blue.png"));
-		Application::s_AssetManager->AddFont(std::string("charriot-font"), std::string("assets/fonts/charriot.ttf"), 14);
+		// ===========================================================================
+		// ===========================================================================
+		// ===============   LOADS ASSETS FROM LUA ===================================
+		// ===========================================================================
+		// ===========================================================================
+		// This shouldn't be here maybe
+		sol::state lua;
+		lua.open_libraries(sol::lib::base, sol::lib::os, sol::lib::math);
+		lua.script_file("./assets/scripts/pong.lua");
 
-		// Court Entity
-		Entity& CourtBackground(Application::s_EManager->AddEntity(std::string("court-background"), ELayerType::ELT_TilemapLayer));
-		CourtBackground.AddComponentOfType<Transform>(Vector2(0.0f, 0.0f), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
-		CourtBackground.AddComponentOfType<Sprite>(std::string("pong-court"), Vector2(800.0f, 600.0f));
+		sol::table GameData = lua["pong"];
+		sol::table GameAssets = GameData["assets"];
+		
+		int assetIndex = 0;
+		while (true) {
+			sol::optional<sol::table> existsAssetIndexNode = GameAssets[assetIndex];
+			if (existsAssetIndexNode == sol::nullopt) {
+				break;
+			}
+
+			sol::table asset = GameAssets[assetIndex];
+			std::string assetType = asset["type"];
+
+			if (assetType.compare("texture") == 0) {
+				std::string assetId = asset["id"];
+				std::string assetFile = asset["file"];
+				Application::s_AssetManager->AddTexture(assetId, assetFile);
+			}
+			else if (assetType.compare("font") == 0) {
+				std::string assetId = asset["id"];
+				std::string assetFile = asset["file"];
+				int fontSize = asset["fontSize"];
+				Application::s_AssetManager->AddFont(assetId, assetFile, fontSize);
+			}
+
+			assetIndex++;
+		}
+
+		// ===========================================================================
+		// ===========================================================================
+		// ===============   LOADS ENTITIES FROM LUA =================================
+		// ===========================================================================
+		// ===========================================================================
+		sol::table GameEntities = GameData["entities"];
+		int entityIndex = 0;
+		while (true) {
+			sol::optional<sol::table> existsEntity = GameEntities[entityIndex];
+			if (existsEntity == sol::nullopt) {
+				break;
+			}
+
+			sol::table entity = GameEntities[entityIndex];
+			std::string entityName = entity["name"];
+			ELayerType layer = static_cast<ELayerType>(static_cast<int>(entity["layer"]));
+
+			// add new entity
+			Entity& NewEntity(Application::s_EManager->AddEntity(entityName, layer));
+
+			sol::optional<sol::table> existComponents = entity["components"];
+			if (existComponents != sol::nullopt) {
+				// Checking for transform component
+				sol::optional<sol::table> existstransformComponent = entity["components"]["transform"];
+				if (existstransformComponent != sol::nullopt) {
+					sol::table transform = entity["components"]["transform"];
+					NewEntity.AddComponentOfType<Transform>(
+						Vector2(transform["position"]["x"], transform["position"]["y"] ),
+						Vector2(transform["rotation"]["x"], transform["rotation"]["y"]),
+						Vector2(transform["scale"]["x"], transform["scale"]["y"])
+					);
+				}
+
+				// checking for sprite component
+				sol::optional<sol::table> existsSpriteComponent = entity["components"]["sprite"];
+				if (existsSpriteComponent != sol::nullopt) {
+					sol::table sprite = entity["components"]["sprite"];
+					NewEntity.AddComponentOfType<Sprite>(
+						sprite["texture"],
+						Vector2(sprite["size"]["x"], sprite["size"]["y"])
+					);
+				}
+			}
+
+			entityIndex++;
+		}
+
 
 		// Ball
 		Entity& BallEntity(Application::s_EManager->AddEntity(std::string("ball"), ELayerType::ELT_PlayerLayer));
@@ -154,5 +223,5 @@ public:
 };
 
 PeanutButter::Application* PeanutButter::CreateApplication() {
-	return new Sandbox(800, 600, "P(eanutButter)ONG");	
+	return new Sandbox();	
 }

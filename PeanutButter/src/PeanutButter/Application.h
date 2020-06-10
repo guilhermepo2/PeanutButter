@@ -20,14 +20,6 @@ namespace PeanutButter {
 	public:
 		/** Default constructor, assumes a width, height and window title. */
 		Application();
-
-		/**
-		* Application constructor
-		* @param Width - window width
-		* @param Height - window height
-		* @param Title - window title
-		*/
-		Application(const int& Width, const int& Height, const std::string Title);
 		virtual ~Application() {}
 		
 		/** Run function, called in the entry point. */
@@ -78,12 +70,9 @@ namespace PeanutButter {
 
 	private:
 		/**
-		* Initialize the engine with the given parameters.
-		* @param GameWidth Window width.
-		* @param GameHeight Window height.
-		* @param GameTile Window Title.
+		* Initialize the engine using config.lua file.
 		*/
-		void Initialize(const int& GameWidth, const int& GameHeight, const std::string& GameTitle);
+		void Initialize();
 		
 		/** Whether or not the engine is still running */
 		bool m_bIsRunning;
