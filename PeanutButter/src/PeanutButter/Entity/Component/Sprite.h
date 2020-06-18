@@ -16,8 +16,18 @@ namespace PeanutButter {
 
 		Sprite(std::string Filepath, const Vector2& InSpriteSize) {
 			m_bIsAnimated = false;
-			SetTexture(Filepath);
 			SpriteSize = Vector2(InSpriteSize.x, InSpriteSize.y);
+			m_SourceRectanglePosition = Vector2(0.0f, 0.0f);
+
+			SetTexture(Filepath);
+		}
+
+		Sprite(std::string Filepath, const Vector2& InSpriteSize, const Vector2& InSourceRectangle) {
+			m_bIsAnimated = false;
+			SpriteSize = Vector2(InSpriteSize.x, InSpriteSize.y);
+			m_SourceRectanglePosition = Vector2(InSourceRectangle.x, InSourceRectangle.y);
+
+			SetTexture(Filepath);
 		}
 
 		Sprite(std::string Filepath, const Vector2& InSpriteSize, pb_uint8 InNumberOfFrames, pb_uint8 InAnimationSpeed, bool InHasDirection) {
@@ -46,6 +56,7 @@ namespace PeanutButter {
 				this->m_CurrentAnimationName = "SingleAnimation";
 			}
 
+			m_SourceRectanglePosition = Vector2(0.0f, 0.0f);
 			Play(m_CurrentAnimationName);
 			SetTexture(Filepath);
 		}
@@ -53,9 +64,11 @@ namespace PeanutButter {
 	private:
 		Transform* transform;
 		SDL_Texture* Texture;
+		Vector2 m_SourceRectanglePosition;
 		SDL_Rect SourceRectangle;
 		SDL_Rect DestinationRectangle;
 
+		// TODO: Animation related stuff should be an AnimatedSprite class
 		bool m_bIsAnimated;
 		pb_uint8 m_NumberOfFrames;
 		pb_uint8 m_AnimationSpeed;
@@ -66,13 +79,14 @@ namespace PeanutButter {
 	public:
 		void Initialize() override {
 			transform = owner->GetComponentOfType<Transform>();
-			SourceRectangle.x = 0;
-			SourceRectangle.y = 0;
+			SourceRectangle.x = static_cast<int>(m_SourceRectanglePosition.x);
+			SourceRectangle.y = static_cast<int>(m_SourceRectanglePosition.y);
 			SourceRectangle.w = static_cast<int>(SpriteSize.x);
 			SourceRectangle.h = static_cast<int>(SpriteSize.y);
 		}
 
 		void Update(float DeltaTime) override {
+			// TODO: Animation should not work like this.
 			if (m_bIsAnimated) {
 				SourceRectangle.x = SourceRectangle.w * static_cast<int>((SDL_GetTicks() / m_AnimationSpeed) % m_NumberOfFrames);
 				SourceRectangle.y = m_CurrentAnimationIndex * static_cast<int>(SpriteSize.y);
