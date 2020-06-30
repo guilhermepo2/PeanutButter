@@ -6,7 +6,6 @@
 #include "PeanutButter/Math/Math.h"
 #include "PeanutButter/Window.h"
 #include "PeanutButter/Input/Input.h"
-#include "sol.hpp"
 
 const unsigned int FPS = 60;
 const unsigned int FRAME_TARGET_TIME = 1000 / FPS;

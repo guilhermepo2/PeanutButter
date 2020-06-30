@@ -6,6 +6,7 @@
 #include "PeanutButter/Log.h"
 #include "PeanutButter/Entity/Component/Transform.h"
 #include "PeanutButter/Particles/ParticleSystem.h"
+#include "sol.hpp"
 
 namespace PeanutButter {
 
