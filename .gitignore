@@ -361,7 +361,7 @@ bin-int/
 !PeanutButter/thirdparty/SDL2_image-2.0.5/lib/x64/
 
 # Visual Studio files
-**.sln/
+**.sln
 **.vcxproj
 **.vcxproj.filters
 **.vcxproj.user
