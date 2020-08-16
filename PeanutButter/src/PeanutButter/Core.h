@@ -46,17 +46,7 @@ const SDL_Color PB_COLOR_BLUE = { 0, 0, 255, 255 };
 // -------------------------------------------|
 
 
-#ifdef PB_PLATFORM_WINDOWS
-	#ifdef PB_BUILD_DYNAMIC
-		#ifdef PB_BUILD_DLL
-			#define PB_API __declspec(dllexport)
-		#else
-			#define PB_API __declspec(dllimport)
-	#endif
-	#else
-		#define PB_API
-	#endif
-#endif
+#define PB_API 
 
 #ifdef PB_ENABLE_ASSERTS
 	#define PB_ASSERT(x, ...) { if (!(x)) { PB_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
@@ -65,5 +55,3 @@ const SDL_Color PB_COLOR_BLUE = { 0, 0, 255, 255 };
 	#define PB_ASSERT(x, ...)
 	#define PB_CORE_ASSERT(x, ...)
 #endif
-
-#define BIT(x) (1 << x)

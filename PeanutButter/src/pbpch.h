@@ -11,9 +11,3 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
-
-
-#ifdef PB_PLATFORM_WINDOWS
-	#include <Windows.h>
-#endif
-

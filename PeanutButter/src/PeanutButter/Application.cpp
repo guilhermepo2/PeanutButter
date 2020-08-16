@@ -95,9 +95,10 @@ namespace PeanutButter {
 
 	void Application::Update(float DeltaTime) {
 		s_EManager->Update(DeltaTime);
+		CheckCollision();
+
 		s_ParticleSystem.Update(DeltaTime);
 		HandleCameraMovement();
-		CheckCollision();
 	}
 
 	void Application::HandleCameraMovement() {
@@ -131,9 +132,6 @@ namespace PeanutButter {
 
 		// TODO: Add Layers for Particles just like we have it for entities!
 		s_ParticleSystem.Render();
-
-		// Resetting the Render Draw Color because the Particle System messes with it.
-		SDL_SetRenderDrawColor(s_Renderer, 21, 21, 21, 255);
 
 		// Swap front and back buffers to render
 		SDL_RenderPresent(s_Renderer);

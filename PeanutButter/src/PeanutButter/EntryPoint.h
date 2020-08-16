@@ -1,7 +1,5 @@
 #pragma once
 
-#ifdef PB_PLATFORM_WINDOWS
-
 extern PeanutButter::Application* PeanutButter::CreateApplication();
 
 int main(int argc, char** argv) {
@@ -13,5 +11,3 @@ int main(int argc, char** argv) {
 	delete app;
 	return 0;
 }
-
-#endif

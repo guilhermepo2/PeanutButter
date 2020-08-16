@@ -11,6 +11,7 @@ public:
 
 private:
 	Transform* transform;
+
 	// Creating Paddle Particle Effects
 	ParticleProps MyParticle;
 	ParticleSystem MyParticleSystem;
@@ -78,6 +79,7 @@ public:
 	PaddleMovementComponent() : Velocity(0.0f) {}
 	PaddleMovementComponent(float InVelocty) : Velocity(InVelocty) {}
 private:
+	// TODO: Have the transform reference on the base class
 	Transform* transform;
 
 public:
@@ -125,7 +127,10 @@ public:
 
 		// Loading Pong Assets
 		Application::s_AssetManager->AddTexture(std::string("pong-ball"), std::string("assets/pong/fancy-ball.png"));
+
+		// TODO: I would like to know the image size that was loaded...
 		Application::s_AssetManager->AddTexture(std::string("pong-court"), std::string("assets/pong/fancy-court.png"));
+
 		Application::s_AssetManager->AddTexture(std::string("pong-paddle-grey"), std::string("assets/pong/fancy-paddle-grey.png"));
 		Application::s_AssetManager->AddTexture(std::string("pong-paddle-green"), std::string("assets/pong/fancy-paddle-green.png"));
 		Application::s_AssetManager->AddTexture(std::string("pong-paddle-blue"), std::string("assets/pong/fancy-paddle-blue.png"));
@@ -134,6 +139,7 @@ public:
 		// Court Entity
 		Entity& CourtBackground(Application::s_EManager->AddEntity(std::string("court-background"), ELayerType::ELT_TilemapLayer));
 		CourtBackground.AddComponentOfType<Transform>(Vector2(0.0f, 0.0f), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
+		// TODO: I want to have an option to stretch the sprite to fill the background.
 		CourtBackground.AddComponentOfType<Sprite>(std::string("pong-court"), Vector2(800.0f, 600.0f));
 
 		// Ball
@@ -149,10 +155,11 @@ public:
 		LeftPaddle.AddComponentOfType<Transform>(Vector2(50.0f, (300.0f - 64.0f)), Vector2(0.0f, 0.0f), Vector2(1.0f, 1.0f));
 		LeftPaddle.AddComponentOfType<Sprite>(std::string("pong-paddle-blue"), Vector2(32.0f, 128.0f));
 		LeftPaddle.AddComponentOfType<Collider2D>("left-paddle", Vector2(50.0f, (300.0f - 64.0f)), Vector2(32.0f, 128.0f));
+
 		LeftPaddle.AddComponentOfType<PaddleMovementComponent>(750.0f);
 	}
 };
 
 PeanutButter::Application* PeanutButter::CreateApplication() {
-	return new Sandbox(800, 600, "P(eanutButter)ONG");	
+	return new Sandbox(800, 600, "P(eanutButter)ONG");
 }
