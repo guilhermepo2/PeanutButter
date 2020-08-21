@@ -3,6 +3,7 @@
 #include "Core.h"
 #include <SDL.h>
 #undef main // dumb SDL stuff
+
 #include "PeanutButter/Log.h"
 #include "PeanutButter/Entity/Component/Transform.h"
 #include "PeanutButter/Particles/ParticleSystem.h"
@@ -103,6 +104,12 @@ namespace PeanutButter {
 		* @param _Props Properties of the particle to be spawned
 		*/
 		inline void EmitParticle(const ParticleProps& _Props) { s_ParticleSystem.Emit(_Props); }
+		
+		// TODO: Make proper commetns
+		/** Just some abstraction to make it more easier to read when adding textures and fonts on the client */
+		void AddTexture(std::string TextureID, std::string Filepath);
+		void AddFont(std::string FontID, std::string Filepath, int FontSize);
+		Entity& CreateEntity(std::string EntityName, ELayerType LayerType);
 	};
 
 	/** Defined in the client */

@@ -8,11 +8,11 @@ namespace PeanutButter {
 	std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
 
 	void Log::Initialize() {
-		spdlog::set_pattern("%^[%T] %n: %v%$");
+		spdlog::set_pattern("%^[%n] %v%$");
 
-		s_CoreLogger = spdlog::stdout_color_mt("Peanut Butter");
+		s_CoreLogger = spdlog::stdout_color_mt("PEANUT BUTTER");
 		s_CoreLogger->set_level(spdlog::level::trace);
-		s_ClientLogger = spdlog::stdout_color_mt("App");
+		s_ClientLogger = spdlog::stdout_color_mt("APPLICATION");
 		s_ClientLogger->set_level(spdlog::level::trace);
 	}
 }

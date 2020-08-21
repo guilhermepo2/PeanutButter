@@ -136,4 +136,16 @@ namespace PeanutButter {
 		// Swap front and back buffers to render
 		SDL_RenderPresent(s_Renderer);
 	}
+
+	void Application::AddTexture(std::string TextureID, std::string Filepath){ 
+		s_AssetManager->AddTexture(TextureID, Filepath); 
+	}
+
+	void Application::AddFont(std::string FontID, std::string Filepath, int FontSize) {
+		s_AssetManager->AddFont(FontID, Filepath, FontSize);
+	}
+
+	Entity& Application::CreateEntity(std::string EntityName, ELayerType LayerType) {
+		return s_EManager->AddEntity(EntityName, LayerType);
+	}
 }
