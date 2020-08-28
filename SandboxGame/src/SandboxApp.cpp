@@ -95,16 +95,16 @@ public:
 	}
 
 	void Update(float DeltaTime) override {
-		if (PeanutButter::Input::IsKeyPressed(PB_KEYCODE_Y)) {
+		if (PeanutButter::Input::WasKeyPressedThisFrame(PB_KEYCODE_Y)) {
 			PB_INFO("PRESSED Y");
-		}
-		else if (PeanutButter::Input::IsKeyPressed(PB_KEYCODE_U)) {
-			PB_INFO("PRESSED U");
+		} else if (PeanutButter::Input::WasKeyReleasedThisFrame(PB_KEYCODE_Y)) {
+			PB_INFO("RELEASED Y");
 		}
 		
 		// ------------------------------------------------------------------------------------------
 		// ------------------------------------------------------------------------------------------
 		// Testing mouse down stuff...
+		/*
 		if (PeanutButter::Input::WasMouseButtonPressedThisFrame(PB_MOUSECODE_LEFT)) {
 			PB_INFO("PRESSED MOUSE LEFT");
 		}
@@ -121,6 +121,7 @@ public:
 		else if (PeanutButter::Input::WasMouseButtonReleasedThisFrame(PB_MOUSECODE_RIGHT)) {
 			PB_INFO("RELEASED MOUSE RIGHT");
 		}
+		*/
 		// ------------------------------------------------------------------------------------------
 		// ------------------------------------------------------------------------------------------
 

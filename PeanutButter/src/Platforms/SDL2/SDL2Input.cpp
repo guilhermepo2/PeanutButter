@@ -12,6 +12,10 @@ namespace PeanutButter {
 			m_MouseButtons.push_back(false);
 			m_MouseButtonsLastFrame.push_back(false);
 		}
+
+		m_KeyboardState = SDL_GetKeyboardState(nullptr);
+
+		m_KeyboardStateLastFrame = new Uint8[m_NumberOfKeys];
 	}
 
 	// TODO: In Parameter should be a "SDL_Scancode"
@@ -24,6 +28,22 @@ namespace PeanutButter {
 
 		return false;
 	}
+
+	bool SDL2Input::WasKeyPressedThisFrame_Implementation(PB_Keycode KeyCode) {
+		return (
+			m_KeyboardState[KeyCode] == 1 &&
+			m_KeyboardStateLastFrame[KeyCode] == 0
+		);
+	}
+	
+	bool SDL2Input::WasKeyReleasedThisFrame_Implementation(PB_Keycode KeyCode) {
+		return (
+			m_KeyboardState[KeyCode] == 0 &&
+			m_KeyboardStateLastFrame[KeyCode] == 1
+		);
+	}
+
+
 
 	bool SDL2Input::IsMouseButtonPressed_Implementation(PB_Mousecode Button) {
 		return m_MouseButtons[Button];
@@ -60,11 +80,14 @@ namespace PeanutButter {
 	}
 
 	void SDL2Input::Update_Implementation() {
-		m_KeyboardState = SDL_GetKeyboardState(nullptr);
-
 		// Copying MouseButtons to MouseButtonsLastFrame before updating the mouse
 		for (int i = 0; i < PB_MOUSE_BUTTON_AMOUNT; i++) {
 			m_MouseButtonsLastFrame[i] = m_MouseButtons[i];
+		}
+
+		// TODO: Do I really know that this will not read unallowed memory?
+		for (int i = 0; i < m_NumberOfKeys; i++) {
+			m_KeyboardStateLastFrame[i] = m_KeyboardState[i];
 		}
 
 		SDL_Event FrameEvent;

@@ -7,8 +7,8 @@ namespace PeanutButter {
 	class PB_API Input {
 	public:
 		inline static bool IsKeyPressed				(PB_Keycode KeyCode) { return s_Instance->IsKeyPressed_Implementation(KeyCode); }
-		inline static bool WasKeyPressedThisFrame	(PB_Keycode KeyCode) { return s_Instance->IsKeyPressed_Implementation(KeyCode); }
-		inline static bool WasKeyReleasedThisFrame	(PB_Keycode KeyCode) { return s_Instance->IsKeyPressed_Implementation(KeyCode); }
+		inline static bool WasKeyPressedThisFrame	(PB_Keycode KeyCode) { return s_Instance->WasKeyPressedThisFrame_Implementation(KeyCode); }
+		inline static bool WasKeyReleasedThisFrame	(PB_Keycode KeyCode) { return s_Instance->WasKeyReleasedThisFrame_Implementation(KeyCode); }
 
 		inline static bool IsMouseButtonPressed				(PB_Mousecode Button) { return s_Instance->IsMouseButtonPressed_Implementation(Button);				}
 		inline static bool WasMouseButtonPressedThisFrame	(PB_Mousecode Button) { return s_Instance->WasMouseButtonPressedThisFrame_Implementation(Button);	}

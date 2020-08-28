@@ -6,8 +6,12 @@ namespace PeanutButter {
 	class PB_API SDL2Input : public Input {
 	public:
 		SDL2Input();
+
 	protected:
 		virtual bool IsKeyPressed_Implementation					(PB_Keycode KeyCode) override;
+		virtual bool WasKeyPressedThisFrame_Implementation			(PB_Keycode KeyCode) override;
+		virtual bool WasKeyReleasedThisFrame_Implementation			(PB_Keycode KeyCode) override;
+
 		virtual bool IsMouseButtonPressed_Implementation			(PB_Mousecode Button) override;
 		virtual bool WasMouseButtonPressedThisFrame_Implementation	(PB_Mousecode Button) override;
 		virtual bool WasMouseButtonReleasedThisFrame_Implementation	(PB_Mousecode Button) override;
@@ -19,6 +23,9 @@ namespace PeanutButter {
 		virtual bool PlayerPressedExitInput_Implementation() override;
 
 		const Uint8* m_KeyboardState;
+		Uint8* m_KeyboardStateLastFrame;
+		int m_NumberOfKeys = static_cast<int>(PeanutButter::SDL_NUM_SCANCODES);
+
 		bool m_bPressedToExit = false;
 		std::vector<bool> m_MouseButtons;
 		std::vector<bool> m_MouseButtonsLastFrame;
