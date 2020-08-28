@@ -10,6 +10,7 @@ namespace PeanutButter {
 	SDL2Input::SDL2Input() {
 		for (int i = 0; i < PB_MOUSE_BUTTON_AMOUNT; i++) {
 			m_MouseButtons.push_back(false);
+			m_MouseButtonsLastFrame.push_back(false);
 		}
 	}
 
@@ -26,6 +27,20 @@ namespace PeanutButter {
 
 	bool SDL2Input::IsMouseButtonPressed_Implementation(PB_Mousecode Button) {
 		return m_MouseButtons[Button];
+	}
+
+	bool SDL2Input::WasMouseButtonPressedThisFrame_Implementation(PB_Mousecode Button) {
+		return (
+				m_MouseButtons[Button] == true &&
+				m_MouseButtonsLastFrame[Button] == false
+			);
+	}
+
+	bool SDL2Input::WasMouseButtonReleasedThisFrame_Implementation(PB_Mousecode Button) {
+		return (
+				m_MouseButtons[Button] == false &&
+				m_MouseButtonsLastFrame[Button] == true
+			);
 	}
 
 	std::pair<float, float> SDL2Input::GetMousePosition_Implementation() {
@@ -45,8 +60,12 @@ namespace PeanutButter {
 	}
 
 	void SDL2Input::Update_Implementation() {
-		// PB_CORE_INFO("SDL2 Input: Updating");
 		m_KeyboardState = SDL_GetKeyboardState(nullptr);
+
+		// Copying MouseButtons to MouseButtonsLastFrame before updating the mouse
+		for (int i = 0; i < PB_MOUSE_BUTTON_AMOUNT; i++) {
+			m_MouseButtonsLastFrame[i] = m_MouseButtons[i];
+		}
 
 		SDL_Event FrameEvent;
 		if (SDL_PollEvent(&FrameEvent)) {

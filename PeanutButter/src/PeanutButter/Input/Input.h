@@ -8,6 +8,9 @@ namespace PeanutButter {
 	public:
 		inline static bool IsKeyPressed(PB_Keycode KeyCode) { return s_Instance->IsKeyPressed_Implementation(KeyCode); }
 		inline static bool IsMouseButtonPressed(PB_Mousecode Button) { return s_Instance->IsMouseButtonPressed_Implementation(Button); }
+		inline static bool WasMouseButtonPressedThisFrame(PB_Mousecode Button) { return s_Instance->WasMouseButtonPressedThisFrame_Implementation(Button); }
+		inline static bool WasMouseButtonReleasedThisFrame(PB_Mousecode Button) { return s_Instance->WasMouseButtonReleasedThisFrame_Implementation(Button);  }
+
 		inline static std::pair<float, float> GetMousePosition() { return s_Instance->GetMousePosition_Implementation(); }
 		inline static float GetMouseX() { return s_Instance->GetMouseX_Implementation(); }
 		inline static float GetMouseY() { return s_Instance->GetMouseY_Implementation(); }
@@ -23,6 +26,9 @@ namespace PeanutButter {
 	protected:
 		virtual bool IsKeyPressed_Implementation(PB_Keycode KeyCode) = 0;
 		virtual bool IsMouseButtonPressed_Implementation(PB_Mousecode Button) = 0;
+		virtual bool WasMouseButtonPressedThisFrame_Implementation(PB_Mousecode Button) = 0;
+		virtual bool WasMouseButtonReleasedThisFrame_Implementation(PB_Mousecode Button) = 0;
+
 		virtual std::pair<float, float> GetMousePosition_Implementation() = 0;
 		virtual float GetMouseX_Implementation() = 0;
 		virtual float GetMouseY_Implementation() = 0;

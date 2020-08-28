@@ -9,6 +9,9 @@ namespace PeanutButter {
 	protected:
 		virtual bool IsKeyPressed_Implementation(PB_Keycode KeyCode) override;
 		virtual bool IsMouseButtonPressed_Implementation(PB_Mousecode Button) override;
+		virtual bool WasMouseButtonPressedThisFrame_Implementation(PB_Mousecode Button) override;
+		virtual bool WasMouseButtonReleasedThisFrame_Implementation(PB_Mousecode Button) override;
+
 		virtual std::pair<float, float> GetMousePosition_Implementation() override;
 		virtual float GetMouseX_Implementation() override;
 		virtual float GetMouseY_Implementation() override;
@@ -18,6 +21,7 @@ namespace PeanutButter {
 		const Uint8* m_KeyboardState;
 		bool m_bPressedToExit = false;
 		std::vector<bool> m_MouseButtons;
+		std::vector<bool> m_MouseButtonsLastFrame;
 		float m_MousePositionX;
 		float m_MousePositionY;
 

@@ -95,6 +95,35 @@ public:
 	}
 
 	void Update(float DeltaTime) override {
+		if (PeanutButter::Input::IsKeyPressed(PB_KEYCODE_Y)) {
+			PB_INFO("PRESSED Y");
+		}
+		else if (PeanutButter::Input::IsKeyPressed(PB_KEYCODE_U)) {
+			PB_INFO("PRESSED U");
+		}
+		
+		// ------------------------------------------------------------------------------------------
+		// ------------------------------------------------------------------------------------------
+		// Testing mouse down stuff...
+		if (PeanutButter::Input::WasMouseButtonPressedThisFrame(PB_MOUSECODE_LEFT)) {
+			PB_INFO("PRESSED MOUSE LEFT");
+		}
+		else if (PeanutButter::Input::WasMouseButtonReleasedThisFrame(PB_MOUSECODE_LEFT)) {
+			PB_INFO("RELEASED MOUSE LEFT");
+		} else if (PeanutButter::Input::WasMouseButtonPressedThisFrame(PB_MOUSECODE_MIDDLE)) {
+			PB_INFO("PRESSED MOUSE MIDDLE");
+		}
+		else if (PeanutButter::Input::WasMouseButtonReleasedThisFrame(PB_MOUSECODE_MIDDLE)) {
+			PB_INFO("RELEASED MOUSE MIDDLE");
+		} else if (PeanutButter::Input::WasMouseButtonPressedThisFrame(PB_MOUSECODE_RIGHT)) {
+			PB_INFO("PRESSED MOUSE RIGHT");
+		}
+		else if (PeanutButter::Input::WasMouseButtonReleasedThisFrame(PB_MOUSECODE_RIGHT)) {
+			PB_INFO("RELEASED MOUSE RIGHT");
+		}
+		// ------------------------------------------------------------------------------------------
+		// ------------------------------------------------------------------------------------------
+
 		if (PeanutButter::Input::IsKeyPressed(PB_KEYCODE_W)) {
 			transform->Position->y -= Velocity * DeltaTime;
 		}
