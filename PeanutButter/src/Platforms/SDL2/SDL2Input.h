@@ -7,10 +7,10 @@ namespace PeanutButter {
 	public:
 		SDL2Input();
 	protected:
-		virtual bool IsKeyPressed_Implementation(PB_Keycode KeyCode) override;
-		virtual bool IsMouseButtonPressed_Implementation(PB_Mousecode Button) override;
-		virtual bool WasMouseButtonPressedThisFrame_Implementation(PB_Mousecode Button) override;
-		virtual bool WasMouseButtonReleasedThisFrame_Implementation(PB_Mousecode Button) override;
+		virtual bool IsKeyPressed_Implementation					(PB_Keycode KeyCode) override;
+		virtual bool IsMouseButtonPressed_Implementation			(PB_Mousecode Button) override;
+		virtual bool WasMouseButtonPressedThisFrame_Implementation	(PB_Mousecode Button) override;
+		virtual bool WasMouseButtonReleasedThisFrame_Implementation	(PB_Mousecode Button) override;
 
 		virtual std::pair<float, float> GetMousePosition_Implementation() override;
 		virtual float GetMouseX_Implementation() override;
